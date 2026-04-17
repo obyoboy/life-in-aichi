@@ -9,86 +9,70 @@
     "grant", "allowance", "subsidy", "benefit", "support", "foreign"
   ],
   "sources": [
-    {
-      "id": "nagoya-kosodate",
-      "name": "名古屋市 子育て",
-      "base_url": "https://www.city.nagoya.jp/kodomo/kosodate/",
-      "category": "childcare",
-      "crawl_depth": 1,
-      "link_selector": "a[href*='/kodomo/']",
-      "enabled": true
-    },
-    {
-      "id": "nagoya-hoken",
-      "name": "名古屋市 保険・年金",
-      "base_url": "https://www.city.nagoya.jp/kurashi/hoken/",
-      "category": "medical",
-      "crawl_depth": 1,
-      "link_selector": "a[href*='/kurashi/hoken/']",
-      "enabled": true
-    },
-    {
-      "id": "nagoya-jutaku",
-      "name": "名古屋市 住宅",
-      "base_url": "https://www.city.nagoya.jp/kurashi/juutaku/",
-      "category": "housing",
-      "crawl_depth": 1,
-      "link_selector": "a[href*='/kurashi/juutaku/']",
-      "enabled": true
-    },
-    {
-      "id": "aichi-tabunka",
-      "name": "愛知県 多文化共生",
-      "base_url": "https://www.pref.aichi.jp/soshiki/tabunka/",
-      "category": "work",
-      "crawl_depth": 1,
-      "link_selector": "a[href*='/tabunka/']",
-      "enabled": true
-    },
-    {
-      "id": "aichi-kenko",
-      "name": "愛知県 健康福祉",
-      "base_url": "https://www.pref.aichi.jp/soshiki/kenko/",
-      "category": "medical",
-      "crawl_depth": 1,
-      "link_selector": "a[href*='/kenko/']",
-      "enabled": true
-    },
-    {
-      "id": "mhlw-kenkou",
-      "name": "厚生労働省 健康・医療",
-      "base_url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/",
-      "category": "medical",
-      "crawl_depth": 0,
-      "link_selector": "a[href*='/kenkou_iryou/']",
-      "enabled": true
-    },
-    {
-      "id": "hellowork",
-      "name": "ハローワーク",
-      "base_url": "https://www.hellowork.mhlw.go.jp/",
-      "category": "work",
-      "crawl_depth": 0,
-      "link_selector": "a[href*='hellowork']",
-      "enabled": true
-    },
-    {
-      "id": "nic-nagoya",
-      "name": "名古屋国際センター",
-      "base_url": "https://www.nic-nagoya.or.jp/",
-      "category": "housing",
-      "crawl_depth": 1,
-      "link_selector": "a[href*='nic-nagoya']",
-      "enabled": true
-    },
-    {
-      "id": "cfa-boshihoken",
-      "name": "こども家庭庁 母子保健",
-      "base_url": "https://www.cfa.go.jp/policies/boshihoken/",
-      "category": "childcare",
-      "crawl_depth": 0,
-      "link_selector": "a[href*='boshihoken']",
-      "enabled": true
-    }
+    {"id": "nagoya", "name": "名古屋市", "region": "尾張", "base_url": "https://www.city.nagoya.jp/", "tier": "weekly", "link_selector": "a[href*='city.nagoya.jp']", "enabled": true},
+    {"id": "ichinomiya", "name": "一宮市", "region": "尾張", "base_url": "https://www.city.ichinomiya.aichi.jp/", "tier": "weekly", "link_selector": "a[href*='ichinomiya']", "enabled": true},
+    {"id": "seto", "name": "瀬戸市", "region": "尾張", "base_url": "https://www.city.seto.aichi.jp/", "tier": "daily", "link_selector": "a[href*='seto']", "enabled": true},
+    {"id": "kasugai", "name": "春日井市", "region": "尾張", "base_url": "https://www.city.kasugai.lg.jp/", "tier": "daily", "link_selector": "a[href*='kasugai']", "enabled": true},
+    {"id": "inuyama", "name": "犬山市", "region": "尾張", "base_url": "https://www.city.inuyama.aichi.jp/", "tier": "daily", "link_selector": "a[href*='inuyama']", "enabled": true},
+    {"id": "konan", "name": "江南市", "region": "尾張", "base_url": "https://www.city.konan.lg.jp/", "tier": "daily", "link_selector": "a[href*='konan']", "enabled": true},
+    {"id": "komaki", "name": "小牧市", "region": "尾張", "base_url": "https://www.city.komaki.aichi.jp/", "tier": "daily", "link_selector": "a[href*='komaki']", "enabled": true},
+    {"id": "inazawa", "name": "稲沢市", "region": "尾張", "base_url": "https://www.city.inazawa.aichi.jp/", "tier": "daily", "link_selector": "a[href*='inazawa']", "enabled": true},
+    {"id": "owariasahi", "name": "尾張旭市", "region": "尾張", "base_url": "https://www.city.owariasahi.lg.jp/", "tier": "daily", "link_selector": "a[href*='owariasahi']", "enabled": true},
+    {"id": "iwakura", "name": "岩倉市", "region": "尾張", "base_url": "https://www.city.iwakura.aichi.jp/", "tier": "daily", "link_selector": "a[href*='iwakura']", "enabled": true},
+    {"id": "toyoake", "name": "豊明市", "region": "尾張", "base_url": "https://www.city.toyoake.lg.jp/", "tier": "daily", "link_selector": "a[href*='toyoake']", "enabled": true},
+    {"id": "nisshin", "name": "日進市", "region": "尾張", "base_url": "https://www.city.nisshin.lg.jp/", "tier": "daily", "link_selector": "a[href*='nisshin']", "enabled": true},
+    {"id": "kiyosu", "name": "清須市", "region": "尾張", "base_url": "https://www.city.kiyosu.aichi.jp/", "tier": "daily", "link_selector": "a[href*='kiyosu']", "enabled": true},
+    {"id": "kitanagoya", "name": "北名古屋市", "region": "尾張", "base_url": "https://www.city.kitanagoya.lg.jp/", "tier": "daily", "link_selector": "a[href*='kitanagoya']", "enabled": true},
+    {"id": "nagakute", "name": "長久手市", "region": "尾張", "base_url": "https://www.city.nagakute.lg.jp/", "tier": "daily", "link_selector": "a[href*='nagakute']", "enabled": true},
+    {"id": "togo", "name": "東郷町", "region": "尾張", "base_url": "https://www.town.aichi-togo.lg.jp/", "tier": "daily", "link_selector": "a[href*='togo']", "enabled": true},
+    {"id": "toyoyama", "name": "豊山町", "region": "尾張", "base_url": "https://www.town.toyoyama.lg.jp/", "tier": "daily", "link_selector": "a[href*='toyoyama']", "enabled": true},
+    {"id": "oguchi", "name": "大口町", "region": "尾張", "base_url": "https://www.town.oguchi.lg.jp/", "tier": "daily", "link_selector": "a[href*='oguchi']", "enabled": true},
+    {"id": "fuso", "name": "扶桑町", "region": "尾張", "base_url": "https://www.town.fuso.lg.jp/", "tier": "daily", "link_selector": "a[href*='fuso']", "enabled": true},
+
+    {"id": "tsushima", "name": "津島市", "region": "海部", "base_url": "https://www.city.tsushima.lg.jp/", "tier": "daily", "link_selector": "a[href*='tsushima']", "enabled": true},
+    {"id": "aisai", "name": "愛西市", "region": "海部", "base_url": "https://www.city.aisai.lg.jp/", "tier": "daily", "link_selector": "a[href*='aisai']", "enabled": true},
+    {"id": "yatomi", "name": "弥富市", "region": "海部", "base_url": "https://www.city.yatomi.lg.jp/", "tier": "daily", "link_selector": "a[href*='yatomi']", "enabled": true},
+    {"id": "ama", "name": "あま市", "region": "海部", "base_url": "https://www.city.ama.aichi.jp/", "tier": "daily", "link_selector": "a[href*='ama.aichi']", "enabled": true},
+    {"id": "oharu", "name": "大治町", "region": "海部", "base_url": "https://www.town.oharu.aichi.jp/", "tier": "daily", "link_selector": "a[href*='oharu']", "enabled": true},
+    {"id": "kanie", "name": "蟹江町", "region": "海部", "base_url": "https://www.town.kanie.aichi.jp/", "tier": "daily", "link_selector": "a[href*='kanie']", "enabled": true},
+    {"id": "tobishima", "name": "飛島村", "region": "海部", "base_url": "https://www.vill.tobishima.aichi.jp/", "tier": "daily", "link_selector": "a[href*='tobishima']", "enabled": true},
+
+    {"id": "handa", "name": "半田市", "region": "知多", "base_url": "https://www.city.handa.lg.jp/", "tier": "daily", "link_selector": "a[href*='handa']", "enabled": true},
+    {"id": "tokoname", "name": "常滑市", "region": "知多", "base_url": "https://www.city.tokoname.aichi.jp/", "tier": "daily", "link_selector": "a[href*='tokoname']", "enabled": true},
+    {"id": "tokai", "name": "東海市", "region": "知多", "base_url": "https://www.city.tokai.aichi.jp/", "tier": "daily", "link_selector": "a[href*='tokai.aichi']", "enabled": true},
+    {"id": "obu", "name": "大府市", "region": "知多", "base_url": "https://www.city.obu.aichi.jp/", "tier": "weekly", "link_selector": "a[href*='obu']", "enabled": true},
+    {"id": "chita", "name": "知多市", "region": "知多", "base_url": "https://www.city.chita.lg.jp/", "tier": "daily", "link_selector": "a[href*='chita']", "enabled": true},
+    {"id": "agui", "name": "阿久比町", "region": "知多", "base_url": "https://www.town.agui.lg.jp/", "tier": "daily", "link_selector": "a[href*='agui']", "enabled": true},
+    {"id": "higashiura", "name": "東浦町", "region": "知多", "base_url": "https://www.town.aichi-higashiura.lg.jp/", "tier": "daily", "link_selector": "a[href*='higashiura']", "enabled": true},
+    {"id": "minamichita", "name": "南知多町", "region": "知多", "base_url": "https://www.town.minamichita.lg.jp/", "tier": "daily", "link_selector": "a[href*='minamichita']", "enabled": true},
+    {"id": "mihama", "name": "美浜町", "region": "知多", "base_url": "https://www.town.aichi-mihama.lg.jp/", "tier": "daily", "link_selector": "a[href*='mihama']", "enabled": true},
+    {"id": "taketoyo", "name": "武豊町", "region": "知多", "base_url": "https://www.town.taketoyo.lg.jp/", "tier": "daily", "link_selector": "a[href*='taketoyo']", "enabled": true},
+
+    {"id": "okazaki", "name": "岡崎市", "region": "西三河", "base_url": "https://www.city.okazaki.lg.jp/", "tier": "weekly", "link_selector": "a[href*='okazaki']", "enabled": true},
+    {"id": "hekinan", "name": "碧南市", "region": "西三河", "base_url": "https://www.city.hekinan.lg.jp/", "tier": "daily", "link_selector": "a[href*='hekinan']", "enabled": true},
+    {"id": "kariya", "name": "刈谷市", "region": "西三河", "base_url": "https://www.city.kariya.lg.jp/", "tier": "daily", "link_selector": "a[href*='kariya']", "enabled": true},
+    {"id": "toyota", "name": "豊田市", "region": "西三河", "base_url": "https://www.city.toyota.aichi.jp/", "tier": "weekly", "link_selector": "a[href*='toyota.aichi']", "enabled": true},
+    {"id": "anjo", "name": "安城市", "region": "西三河", "base_url": "https://www.city.anjo.aichi.jp/", "tier": "daily", "link_selector": "a[href*='anjo']", "enabled": true},
+    {"id": "nishio", "name": "西尾市", "region": "西三河", "base_url": "https://www.city.nishio.aichi.jp/", "tier": "daily", "link_selector": "a[href*='nishio']", "enabled": true},
+    {"id": "chiryu", "name": "知立市", "region": "西三河", "base_url": "https://www.city.chiryu.aichi.jp/", "tier": "daily", "link_selector": "a[href*='chiryu']", "enabled": true},
+    {"id": "takahama", "name": "高浜市", "region": "西三河", "base_url": "https://www.city.takahama.lg.jp/", "tier": "daily", "link_selector": "a[href*='takahama']", "enabled": true},
+    {"id": "miyoshi", "name": "みよし市", "region": "西三河", "base_url": "https://www.city.aichi-miyoshi.lg.jp/", "tier": "daily", "link_selector": "a[href*='miyoshi']", "enabled": true},
+    {"id": "kota", "name": "幸田町", "region": "西三河", "base_url": "https://www.town.kota.lg.jp/", "tier": "daily", "link_selector": "a[href*='kota']", "enabled": true},
+
+    {"id": "toyohashi", "name": "豊橋市", "region": "東三河", "base_url": "https://www.city.toyohashi.lg.jp/", "tier": "weekly", "link_selector": "a[href*='toyohashi']", "enabled": true},
+    {"id": "toyokawa", "name": "豊川市", "region": "東三河", "base_url": "https://www.city.toyokawa.lg.jp/", "tier": "daily", "link_selector": "a[href*='toyokawa']", "enabled": true},
+    {"id": "gamagori", "name": "蒲郡市", "region": "東三河", "base_url": "https://www.city.gamagori.lg.jp/", "tier": "daily", "link_selector": "a[href*='gamagori']", "enabled": true},
+    {"id": "shinshiro", "name": "新城市", "region": "東三河", "base_url": "https://www.city.shinshiro.lg.jp/", "tier": "daily", "link_selector": "a[href*='shinshiro']", "enabled": true},
+    {"id": "tahara", "name": "田原市", "region": "東三河", "base_url": "https://www.city.tahara.aichi.jp/", "tier": "daily", "link_selector": "a[href*='tahara']", "enabled": true},
+    {"id": "shitara", "name": "設楽町", "region": "東三河", "base_url": "https://www.town.shitara.lg.jp/", "tier": "daily", "link_selector": "a[href*='shitara']", "enabled": true},
+    {"id": "toei", "name": "東栄町", "region": "東三河", "base_url": "https://www.town.toei.aichi.jp/", "tier": "daily", "link_selector": "a[href*='toei']", "enabled": true},
+    {"id": "toyone", "name": "豊根村", "region": "東三河", "base_url": "https://www.vill.toyone.aichi.jp/", "tier": "daily", "link_selector": "a[href*='toyone']", "enabled": true},
+
+    {"id": "aichi-pref-tabunka", "name": "愛知県 多文化共生", "region": "県", "base_url": "https://www.pref.aichi.jp/soshiki/tabunka/", "tier": "weekly", "link_selector": "a[href*='/tabunka/']", "enabled": true},
+    {"id": "aichi-pref-kenko", "name": "愛知県 健康福祉", "region": "県", "base_url": "https://www.pref.aichi.jp/soshiki/kenko/", "tier": "daily", "link_selector": "a[href*='/kenko/']", "enabled": true},
+    {"id": "mhlw", "name": "厚生労働省 健康・医療", "region": "国", "base_url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/", "tier": "weekly", "link_selector": "a[href*='/kenkou_iryou/']", "enabled": true},
+    {"id": "hellowork", "name": "ハローワーク", "region": "国", "base_url": "https://www.hellowork.mhlw.go.jp/", "tier": "daily", "link_selector": "a[href*='hellowork']", "enabled": true},
+    {"id": "nic-nagoya", "name": "名古屋国際センター", "region": "県", "base_url": "https://www.nic-nagoya.or.jp/", "tier": "weekly", "link_selector": "a[href*='nic-nagoya']", "enabled": true},
+    {"id": "cfa-boshihoken", "name": "こども家庭庁 母子保健", "region": "国", "base_url": "https://www.cfa.go.jp/policies/boshihoken/", "tier": "weekly", "link_selector": "a[href*='boshihoken']", "enabled": true}
   ]
 }

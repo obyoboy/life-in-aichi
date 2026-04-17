@@ -2,15 +2,26 @@ name: Crawl & Detect
 
 on:
   schedule:
-    # Daily at 01:00 UTC (10:00 JST)
+    # Daily at 01:00 UTC (10:00 JST) — all sources, depth 0
     - cron: '0 1 * * *'
+    # Sunday at 01:30 UTC (10:30 JST) — weekly sources, depth 1
+    - cron: '30 1 * * 0'
   workflow_dispatch:
+    inputs:
+      tier:
+        description: 'Crawl tier'
+        required: true
+        default: 'daily'
+        type: choice
+        options:
+          - daily
+          - weekly
 
 permissions:
   contents: write
 
 concurrency:
-  group: crawl-${{ github.ref }}
+  group: crawl-${{ github.event.schedule || 'manual' }}-${{ github.ref }}
   cancel-in-progress: true
 
 env:
@@ -19,7 +30,7 @@ env:
 jobs:
   crawl:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 60
 
     steps:
       - name: Checkout
@@ -35,19 +46,31 @@ jobs:
       - name: Install dependencies
         run: pip install -r scripts/crawl/requirements.txt
 
+      - name: Determine tier
+        id: tier
+        run: |
+          # Manual trigger: use input
+          # Scheduled: Sunday 01:30 = weekly, otherwise daily
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            TIER="${{ inputs.tier }}"
+          elif [ "${{ github.event.schedule }}" == "30 1 * * 0" ]; then
+            TIER="weekly"
+          else
+            TIER="daily"
+          fi
+          echo "tier=$TIER" >> $GITHUB_OUTPUT
+          echo "Running tier: $TIER"
+
       - name: Run monitor
         id: monitor
         run: |
           set +e
-          python scripts/crawl/monitor.py
+          python scripts/crawl/monitor.py --tier ${{ steps.tier.outputs.tier }}
           MONITOR_EXIT=$?
           set -e
           echo "monitor_exit=$MONITOR_EXIT" >> $GITHUB_OUTPUT
 
-          # Classify the exit code
-          # monitor.py writes output_file, new_count, etc. to $GITHUB_OUTPUT.
-          # Within the same step, steps.<id>.outputs is not yet available,
-          # so we read the file directly with grep.
+          # Read output_file from GITHUB_OUTPUT (written by monitor.py)
           OUTPUT_FILE=$(grep '^output_file=' "$GITHUB_OUTPUT" | tail -1 | cut -d= -f2-)
 
           case $MONITOR_EXIT in
@@ -55,10 +78,8 @@ jobs:
               echo "::notice::Crawl completed cleanly"
               ;;
             1)
-              # Distinguish genuine warning (some sources failed) from startup crash (import error).
-              # monitor.py only writes output_file on successful execution.
               if [ -z "$OUTPUT_FILE" ] || [ ! -f "$OUTPUT_FILE" ]; then
-                echo "::error::Exit code 1 but no output file — likely a startup crash (import error, etc.)"
+                echo "::error::Exit code 1 but no output file — likely a startup crash"
                 exit 1
               fi
               echo "::warning::Crawl completed with some source errors"
@@ -83,14 +104,16 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/
-          git diff --staged --quiet || git commit -m "crawl: $(date +%Y-%m-%d) — ${{ steps.monitor.outputs.new_count }} new, ${{ steps.monitor.outputs.updated_count }} updated, ${{ steps.monitor.outputs.errors }} errors"
+          TIER="${{ steps.tier.outputs.tier }}"
+          git diff --staged --quiet || git commit -m "crawl($TIER): $(date +%Y-%m-%d) — ${{ steps.monitor.outputs.new_count }} new, ${{ steps.monitor.outputs.updated_count }} updated, ${{ steps.monitor.outputs.errors }} errors"
           git push
 
       - name: Summary
         if: always()
         run: |
-          echo "## Crawl Results — $(date +%Y-%m-%d)" >> $GITHUB_STEP_SUMMARY
+          echo "## Crawl Results — $(date +%Y-%m-%d) [${{ steps.tier.outputs.tier }}]" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Tier:** ${{ steps.tier.outputs.tier }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Monitor exit code:** ${{ steps.monitor.outputs.monitor_exit }}" >> $GITHUB_STEP_SUMMARY
           echo "- **New candidates:** ${{ steps.monitor.outputs.new_count }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Updated pages:** ${{ steps.monitor.outputs.updated_count }}" >> $GITHUB_STEP_SUMMARY
@@ -98,11 +121,10 @@ jobs:
           echo "- **Output file:** \`${{ steps.monitor.outputs.output_file }}\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           if [ "${{ steps.monitor.outputs.monitor_exit }}" == "3" ]; then
-            echo "💥 Monitor crashed. Check workflow logs for stack trace." >> $GITHUB_STEP_SUMMARY
+            echo "💥 Monitor crashed. Check workflow logs." >> $GITHUB_STEP_SUMMARY
           elif [ "${{ steps.monitor.outputs.errors }}" != "0" ]; then
-            echo "⚠️ Some sources had errors. Check workflow logs for details." >> $GITHUB_STEP_SUMMARY
+            echo "⚠️ Some sources had errors. Check logs." >> $GITHUB_STEP_SUMMARY
           fi
           if [ "${{ steps.monitor.outputs.new_count }}" != "0" ] || [ "${{ steps.monitor.outputs.updated_count }}" != "0" ]; then
-            echo "" >> $GITHUB_STEP_SUMMARY
             echo "📋 Candidates saved to \`${{ steps.monitor.outputs.output_file }}\`" >> $GITHUB_STEP_SUMMARY
           fi

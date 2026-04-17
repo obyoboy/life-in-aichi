@@ -3,8 +3,14 @@
 Life in Aichi — Site Monitor
 Crawls configured sources, detects new/updated pages, filters by keywords.
 Outputs candidate JSON for human review.
+
+Usage:
+  python monitor.py --tier daily    # depth 0 for all 60 sources
+  python monitor.py --tier weekly   # depth 1 for top 10 sources only
+  python monitor.py                 # defaults to daily
 """
 
+import argparse
 import hashlib
 import json
 import os
@@ -111,62 +117,97 @@ def save_snapshot(source_id: str, snapshot: dict):
 
 
 class RobotsChecker:
-    """Per-domain robots.txt checker using urllib.robotparser.
-    Conservative: if robots.txt cannot be fetched or parsed, deny access to that domain."""
+    """Per-domain robots.txt checker.
+    Uses requests with explicit timeout instead of RobotFileParser.read().
+    Returns check result with reason so callers can distinguish:
+      - 'allowed': robots.txt permits access
+      - 'blocked': robots.txt explicitly disallows access
+      - 'error': robots.txt could not be fetched (network/timeout/parse failure)
+    """
 
-    def __init__(self, user_agent: str):
+    def __init__(self, user_agent: str, timeout: int = 15):
         self.user_agent = user_agent
+        self.timeout = timeout
         self._parsers: dict[str, object] = {}
-        self._denied_domains: set[str] = set()
+        self._error_domains: set[str] = set()  # network/server failures
+        self._blocked_domains: set[str] = set()  # access denied by policy
 
     def _get_parser(self, url: str):
         from urllib.robotparser import RobotFileParser
 
         parsed = urlparse(url)
         domain = f"{parsed.scheme}://{parsed.netloc}"
-        if domain in self._denied_domains:
-            return None
+
+        if domain in self._error_domains:
+            return None, True
+        if domain in self._blocked_domains:
+            return None, False
+
         if domain not in self._parsers:
-            rp = RobotFileParser()
-            rp.set_url(f"{domain}/robots.txt")
+            robots_url = f"{domain}/robots.txt"
             try:
-                rp.read()
-                # Verify the parser actually has rules.
-                # RobotFileParser.read() on 4xx may silently set allow_all=True
-                # or on network error may leave the parser in an empty state.
-                # We check: if last_checked is 0 (never set), read() likely failed silently.
-                if not rp.last_checked:
-                    print(f"  [WARN] robots.txt for {domain}: read() succeeded but no rules parsed. Denying.")
-                    self._denied_domains.add(domain)
-                    return None
-                self._parsers[domain] = rp
-            except Exception as e:
+                resp = requests.get(
+                    robots_url,
+                    headers={"User-Agent": self.user_agent},
+                    timeout=self.timeout,
+                )
+                rp = RobotFileParser()
+                rp.set_url(robots_url)
+                if resp.status_code == 200:
+                    rp.parse(resp.text.splitlines())
+                    self._parsers[domain] = rp
+                elif resp.status_code in (404, 410):
+                    # No robots.txt = allow all (standard behavior)
+                    rp.allow_all = True
+                    self._parsers[domain] = rp
+                elif resp.status_code in (401, 403):
+                    # Access denied — policy block, not infrastructure error
+                    print(f"  [SKIP] robots.txt returned {resp.status_code} for {domain}. Treating as blocked.")
+                    self._blocked_domains.add(domain)
+                    return None, False
+                else:
+                    # 5xx or unexpected — infrastructure error
+                    print(f"  [WARN] robots.txt returned {resp.status_code} for {domain}. Denying.")
+                    self._error_domains.add(domain)
+                    return None, True
+            except requests.RequestException as e:
                 print(f"  [WARN] robots.txt fetch failed for {domain}: {e}. Denying.")
-                self._denied_domains.add(domain)
-                return None
-        return self._parsers.get(domain)
+                self._error_domains.add(domain)
+                return None, True
 
-    def is_allowed(self, url: str) -> bool:
-        parser = self._get_parser(url)
+        return self._parsers.get(domain), False
+
+    def check(self, url: str) -> str:
+        """Returns 'allowed', 'blocked', or 'error'."""
+        parser, is_error = self._get_parser(url)
         if parser is None:
-            return False
-        return parser.can_fetch(self.user_agent, url)
+            return "error" if is_error else "blocked"
+        if parser.can_fetch(self.user_agent, url):
+            return "allowed"
+        return "blocked"
 
 
-def crawl_source(source: dict, config: dict, robots: RobotsChecker) -> tuple[list, list, dict, bool]:
+def crawl_source(source: dict, config: dict, robots: RobotsChecker) -> tuple[list, list, dict, str]:
     """
     Crawl a single source.
-    Returns (new_candidates, updated_candidates, merged_snapshot, success).
-    success=False when base URL fetch fails or robots.txt blocks — caller must count as error.
+    Returns (new_candidates, updated_candidates, merged_snapshot, status).
+    status: 'ok' | 'failed' | 'skipped'
+      - 'skipped': robots.txt blocked — not an error, just excluded
+      - 'failed': base URL fetch failed — counts as error
+      - 'ok': completed successfully
     """
     source_id = source["id"]
     base_url = source["base_url"]
     print(f"\n[{source_id}] Crawling {source['name']}...")
 
-    # Check robots.txt for base URL
-    if not robots.is_allowed(base_url):
+    # Check robots.txt for base URL — distinguish block vs error
+    robots_result = robots.check(base_url)
+    if robots_result == "blocked":
         print(f"  [SKIP] Blocked by robots.txt: {base_url}")
-        return [], [], {}, False  # P1: mark as failure
+        return [], [], {}, "skipped"
+    elif robots_result == "error":
+        print(f"  [ERROR] robots.txt fetch failed: {base_url}")
+        return [], [], {}, "failed"
 
     # Load previous snapshot — this is the base we merge into
     old_snapshot = load_snapshot(source_id)
@@ -180,11 +221,13 @@ def crawl_source(source: dict, config: dict, robots: RobotsChecker) -> tuple[lis
     html = fetch_page(base_url, config)
     if not html:
         print(f"  [ERROR] Failed to fetch base page: {base_url}")
-        return [], [], old_snapshot, False  # P1: mark as failure
+        return [], [], old_snapshot, "failed"
 
-    # Collect URLs to check (crawl_depth controls whether to follow links, not recursion depth)
+    # Collect URLs to check
+    # _crawl_depth is set by main() based on tier: 0 = top page only, 1 = follow links
     urls_to_check = [base_url]
-    if source.get("crawl_depth", 0) > 0:
+    crawl_depth = source.get("_crawl_depth", source.get("crawl_depth", 0))
+    if crawl_depth > 0:
         selector = source.get("link_selector", "a")
         child_links = extract_links(html, base_url, selector)
         urls_to_check.extend(child_links[:50])  # Cap at 50 pages per source
@@ -193,11 +236,14 @@ def crawl_source(source: dict, config: dict, robots: RobotsChecker) -> tuple[lis
 
     for url in urls_to_check:
         # Per-URL robots.txt check
-        if not robots.is_allowed(url):
-            print(f"  [SKIP] Blocked by robots.txt: {url}")
+        url_robots = robots.check(url)
+        if url_robots != "allowed":
+            print(f"  [SKIP] {url_robots} by robots.txt: {url}")
             continue
 
-        time.sleep(interval)
+        # P3: skip sleep for base_url — already fetched above
+        if url != base_url:
+            time.sleep(interval)
 
         page_html = html if url == base_url else fetch_page(url, config)
         if not page_html:
@@ -255,55 +301,85 @@ def crawl_source(source: dict, config: dict, robots: RobotsChecker) -> tuple[lis
             )
             print(f"  [UPDATED] {title[:60]}")
 
-    return new_candidates, updated_candidates, merged_snapshot, True
+    return new_candidates, updated_candidates, merged_snapshot, "ok"
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Life in Aichi — Site Monitor")
+    parser.add_argument(
+        "--tier",
+        choices=["daily", "weekly"],
+        default="daily",
+        help="daily = all sources at depth 0, weekly = tier:weekly sources at depth 1",
+    )
+    args = parser.parse_args()
+    tier = args.tier
+
     config = load_config()
-    sources = [s for s in config["sources"] if s.get("enabled", True)]
-    robots = RobotsChecker(config["user_agent"])
+    robots = RobotsChecker(config["user_agent"], timeout=config.get("timeout_seconds", 15))
+
+    # Filter and configure sources based on tier
+    all_sources = [s for s in config["sources"] if s.get("enabled", True)]
+    if tier == "daily":
+        # All sources, depth 0 (top page only)
+        sources = all_sources
+        for s in sources:
+            s["_crawl_depth"] = 0
+    else:
+        # Weekly: only tier=weekly sources, depth 1 (follow links)
+        sources = [s for s in all_sources if s.get("tier") == "weekly"]
+        for s in sources:
+            s["_crawl_depth"] = 1
 
     print(f"Life in Aichi — Site Monitor")
     print(f"Date: {date.today().isoformat()}")
-    print(f"Sources: {len(sources)} enabled")
+    print(f"Tier: {tier}")
+    print(f"Sources: {len(sources)} (of {len(all_sources)} total)")
     print("=" * 60)
 
     all_new = []
     all_updated = []
     errors = 0
+    skipped = 0
 
     for source in sources:
         try:
-            new, updated, snapshot, success = crawl_source(source, config, robots)
+            new, updated, snapshot, status = crawl_source(source, config, robots)
             all_new.extend(new)
             all_updated.extend(updated)
             if snapshot:
                 save_snapshot(source["id"], snapshot)
-            if not success:
-                errors += 1  # P1: count fetch failures and robots blocks
+            if status == "failed":
+                errors += 1
+            elif status == "skipped":
+                skipped += 1
         except Exception as e:
             print(f"  [ERROR] {source['id']}: {e}")
             errors += 1
 
     # Output results
     now = datetime.now()
+    crawled_count = len(sources) - errors - skipped
     result = {
         "crawl_date": date.today().isoformat(),
         "crawl_time": now.isoformat(),
-        "sources_checked": len(sources),
+        "tier": tier,
+        "sources_total": len(sources),
+        "sources_crawled": crawled_count,
+        "sources_skipped": skipped,
         "sources_failed": errors,
         "candidates": all_new,
         "updated": all_updated,
     }
 
-    # Save candidates JSON with timestamp to avoid overwrites on re-run (P4)
+    # Save candidates JSON with timestamp to avoid overwrites on re-run
     CANDIDATES_DIR.mkdir(parents=True, exist_ok=True)
     timestamp = now.strftime("%Y-%m-%dT%H%M%S")
     output_path = CANDIDATES_DIR / f"{timestamp}.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
 
-    # P2: Write output path to GITHUB_OUTPUT so workflow reads the exact file we just created
+    # Write output to GITHUB_OUTPUT so workflow reads the exact file
     gh_output = os.environ.get("GITHUB_OUTPUT")
     if gh_output:
         with open(gh_output, "a", encoding="utf-8") as f:
@@ -311,8 +387,9 @@ def main():
             f.write(f"new_count={len(all_new)}\n")
             f.write(f"updated_count={len(all_updated)}\n")
             f.write(f"errors={errors}\n")
+            f.write(f"skipped={skipped}\n")
 
-    # Rotate old candidate files — keep last 30 days (P5)
+    # Rotate old candidate files — keep last 30 days
     rotate_old_candidates(days=30)
 
     # Summary
@@ -320,7 +397,9 @@ def main():
     print(f"Results:")
     print(f"  New candidates:     {len(all_new)}")
     print(f"  Updated pages:      {len(all_updated)}")
-    print(f"  Errors:             {errors}")
+    print(f"  Sources crawled:    {crawled_count}")
+    print(f"  Sources skipped:    {skipped} (robots.txt)")
+    print(f"  Sources failed:     {errors}")
     print(f"  Output: {output_path}")
 
     if all_new or all_updated:
@@ -334,12 +413,14 @@ def main():
             print(f"        {u['url']}")
             print(f"        {u['diff_summary']}")
 
-    # Exit codes: 0 = clean, 1 = had errors (warning), 2 = critical (P2)
-    if errors > len(sources) // 2:
-        print(f"\n[FAIL] Too many errors ({errors}/{len(sources)})")
+    # Exit codes: 0 = clean, 1 = warning (some failures), 2 = critical
+    # Threshold is based on non-skipped sources only (skipped = robots block, not an error)
+    active_sources = len(sources) - skipped
+    if active_sources > 0 and errors > active_sources // 2:
+        print(f"\n[FAIL] Too many errors ({errors}/{active_sources} active sources)")
         return 2
     if errors > 0:
-        print(f"\n[WARN] {errors} source(s) had errors")
+        print(f"\n[WARN] {errors} source(s) had errors ({skipped} skipped by robots.txt)")
         return 1
     return 0
 

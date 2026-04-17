@@ -8,7 +8,7 @@ import { LineCTA } from "@/components/LineCTA";
 import type { Metadata } from "next";
 import { buildLanguageAlternates, getSiteUrl } from "@/lib/seo";
 import { assertArticleDataIntegrity } from "@/lib/articleDataValidation";
-import { generateArticleJsonLd, generateBreadcrumbJsonLd } from "@/lib/jsonld";
+import { generateArticleJsonLd, generateBreadcrumbJsonLd, generateFaqJsonLd } from "@/lib/jsonld";
 
 export function generateStaticParams() {
   assertArticleDataIntegrity();
@@ -113,6 +113,7 @@ export default async function ArticlePage({
     { name: t.allArticles, url: `${base}/${typedLang}/articles` },
     { name: article.title, url: `${base}/${typedLang}/articles/${id}` },
   ]);
+  const faqJsonLd = generateFaqJsonLd(article, t);
 
   return (
     <div className="section">
@@ -123,6 +124,10 @@ export default async function ArticlePage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Link href={`/${lang}/articles`} className="back-btn">
         {t.backToList}

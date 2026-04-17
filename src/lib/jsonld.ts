@@ -41,3 +41,40 @@ export function generateBreadcrumbJsonLd(
     })),
   };
 }
+
+export function generateFaqJsonLd(
+  article: Article,
+  t: Translations
+): object {
+  const faqs: { question: string; answer: string }[] = [
+    {
+      question: `${t.sec2} — ${article.title}`,
+      answer: article.sections.s2 + (article.sections.s2note ? ` (${article.sections.s2note})` : ""),
+    },
+    {
+      question: `${t.sec4} — ${article.title}`,
+      answer: article.sections.s4.replace(/\n/g, " "),
+    },
+    {
+      question: `${t.sec3} — ${article.title}`,
+      answer: article.sections.s3,
+    },
+    {
+      question: `${t.sec5} — ${article.title}`,
+      answer: article.sections.s5.replace(/\n/g, " "),
+    },
+  ];
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+}
