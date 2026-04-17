@@ -1,0 +1,94 @@
+{
+  "user_agent": "LifeInAichiBot/1.0 (+https://life-in-aichi.vercel.app/about)",
+  "request_interval_seconds": 3,
+  "timeout_seconds": 15,
+  "max_retries": 2,
+  "keywords": [
+    "給付", "助成", "手当", "補助", "支援", "一時金", "減免", "免除",
+    "外国人", "外国籍", "多文化", "在留", "国籍を問わず", "住民登録",
+    "grant", "allowance", "subsidy", "benefit", "support", "foreign"
+  ],
+  "sources": [
+    {
+      "id": "nagoya-kosodate",
+      "name": "名古屋市 子育て",
+      "base_url": "https://www.city.nagoya.jp/kodomo/kosodate/",
+      "category": "childcare",
+      "crawl_depth": 1,
+      "link_selector": "a[href*='/kodomo/']",
+      "enabled": true
+    },
+    {
+      "id": "nagoya-hoken",
+      "name": "名古屋市 保険・年金",
+      "base_url": "https://www.city.nagoya.jp/kurashi/hoken/",
+      "category": "medical",
+      "crawl_depth": 1,
+      "link_selector": "a[href*='/kurashi/hoken/']",
+      "enabled": true
+    },
+    {
+      "id": "nagoya-jutaku",
+      "name": "名古屋市 住宅",
+      "base_url": "https://www.city.nagoya.jp/kurashi/juutaku/",
+      "category": "housing",
+      "crawl_depth": 1,
+      "link_selector": "a[href*='/kurashi/juutaku/']",
+      "enabled": true
+    },
+    {
+      "id": "aichi-tabunka",
+      "name": "愛知県 多文化共生",
+      "base_url": "https://www.pref.aichi.jp/soshiki/tabunka/",
+      "category": "work",
+      "crawl_depth": 1,
+      "link_selector": "a[href*='/tabunka/']",
+      "enabled": true
+    },
+    {
+      "id": "aichi-kenko",
+      "name": "愛知県 健康福祉",
+      "base_url": "https://www.pref.aichi.jp/soshiki/kenko/",
+      "category": "medical",
+      "crawl_depth": 1,
+      "link_selector": "a[href*='/kenko/']",
+      "enabled": true
+    },
+    {
+      "id": "mhlw-kenkou",
+      "name": "厚生労働省 健康・医療",
+      "base_url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/",
+      "category": "medical",
+      "crawl_depth": 0,
+      "link_selector": "a[href*='/kenkou_iryou/']",
+      "enabled": true
+    },
+    {
+      "id": "hellowork",
+      "name": "ハローワーク",
+      "base_url": "https://www.hellowork.mhlw.go.jp/",
+      "category": "work",
+      "crawl_depth": 0,
+      "link_selector": "a[href*='hellowork']",
+      "enabled": true
+    },
+    {
+      "id": "nic-nagoya",
+      "name": "名古屋国際センター",
+      "base_url": "https://www.nic-nagoya.or.jp/",
+      "category": "housing",
+      "crawl_depth": 1,
+      "link_selector": "a[href*='nic-nagoya']",
+      "enabled": true
+    },
+    {
+      "id": "cfa-boshihoken",
+      "name": "こども家庭庁 母子保健",
+      "base_url": "https://www.cfa.go.jp/policies/boshihoken/",
+      "category": "childcare",
+      "crawl_depth": 0,
+      "link_selector": "a[href*='boshihoken']",
+      "enabled": true
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+name: Crawl & Detect
+
+on:
+  schedule:
+    # Daily at 01:00 UTC (10:00 JST)
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: crawl-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  TZ: Asia/Tokyo
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: scripts/crawl/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r scripts/crawl/requirements.txt
+
+      - name: Run monitor
+        id: monitor
+        run: |
+          set +e
+          python scripts/crawl/monitor.py
+          MONITOR_EXIT=$?
+          set -e
+          echo "monitor_exit=$MONITOR_EXIT" >> $GITHUB_OUTPUT
+
+          # Classify the exit code
+          # monitor.py writes output_file, new_count, etc. to $GITHUB_OUTPUT.
+          # Within the same step, steps.<id>.outputs is not yet available,
+          # so we read the file directly with grep.
+          OUTPUT_FILE=$(grep '^output_file=' "$GITHUB_OUTPUT" | tail -1 | cut -d= -f2-)
+
+          case $MONITOR_EXIT in
+            0)
+              echo "::notice::Crawl completed cleanly"
+              ;;
+            1)
+              # Distinguish genuine warning (some sources failed) from startup crash (import error).
+              # monitor.py only writes output_file on successful execution.
+              if [ -z "$OUTPUT_FILE" ] || [ ! -f "$OUTPUT_FILE" ]; then
+                echo "::error::Exit code 1 but no output file — likely a startup crash (import error, etc.)"
+                exit 1
+              fi
+              echo "::warning::Crawl completed with some source errors"
+              ;;
+            2)
+              echo "::error::Crawl failed — too many source errors"
+              exit 2
+              ;;
+            3)
+              echo "::error::Crawl crashed — unhandled exception"
+              exit 3
+              ;;
+            *)
+              echo "::error::Crawl returned unexpected exit code $MONITOR_EXIT"
+              exit 1
+              ;;
+          esac
+
+      - name: Commit snapshots & candidates
+        if: steps.monitor.outputs.output_file != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "crawl: $(date +%Y-%m-%d) — ${{ steps.monitor.outputs.new_count }} new, ${{ steps.monitor.outputs.updated_count }} updated, ${{ steps.monitor.outputs.errors }} errors"
+          git push
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Crawl Results — $(date +%Y-%m-%d)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Monitor exit code:** ${{ steps.monitor.outputs.monitor_exit }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **New candidates:** ${{ steps.monitor.outputs.new_count }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Updated pages:** ${{ steps.monitor.outputs.updated_count }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Source errors:** ${{ steps.monitor.outputs.errors }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Output file:** \`${{ steps.monitor.outputs.output_file }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.monitor.outputs.monitor_exit }}" == "3" ]; then
+            echo "💥 Monitor crashed. Check workflow logs for stack trace." >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ steps.monitor.outputs.errors }}" != "0" ]; then
+            echo "⚠️ Some sources had errors. Check workflow logs for details." >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ "${{ steps.monitor.outputs.new_count }}" != "0" ] || [ "${{ steps.monitor.outputs.updated_count }}" != "0" ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "📋 Candidates saved to \`${{ steps.monitor.outputs.output_file }}\`" >> $GITHUB_STEP_SUMMARY
+          fi
