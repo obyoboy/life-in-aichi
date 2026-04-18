@@ -1,0 +1,40 @@
+{
+  "crawl_date": "2026-04-18",
+  "crawl_time": "2026-04-18T12:46:10.533540",
+  "tier": "daily",
+  "sources_total": 60,
+  "sources_crawled": 59,
+  "sources_skipped": 0,
+  "sources_failed": 1,
+  "candidates": [],
+  "updated": [
+    {
+      "url": "https://www.city.kiyosu.aichi.jp/",
+      "source": "清須市",
+      "source_id": "kiyosu",
+      "category": "",
+      "status": "updated",
+      "title": "清須市ホームページ",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "7edf445c577a3ff0",
+      "previous_hash": "5eaa1e875110cc9e",
+      "diff_summary": "Content changed since 2026-04-18"
+    },
+    {
+      "url": "https://www.city.tokoname.aichi.jp/",
+      "source": "常滑市",
+      "source_id": "tokoname",
+      "category": "",
+      "status": "updated",
+      "title": "常滑市",
+      "detected_keywords": [
+        "補助"
+      ],
+      "content_hash": "c841bd1a0b53f3c6",
+      "previous_hash": "4191029554474e52",
+      "diff_summary": "Content changed since 2026-04-18"
+    }
+  ]
+}
