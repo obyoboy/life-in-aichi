@@ -69,7 +69,7 @@
     {"id": "toyone", "name": "豊根村", "region": "東三河", "base_url": "https://www.vill.toyone.aichi.jp/", "tier": "daily", "link_selector": "a[href*='toyone']", "enabled": true},
 
     {"id": "aichi-pref-tabunka", "name": "愛知県 多文化共生", "region": "県", "base_url": "https://www.pref.aichi.jp/soshiki/tabunka/", "tier": "weekly", "link_selector": "a[href*='/tabunka/']", "enabled": true},
-    {"id": "aichi-pref-kenko", "name": "愛知県 健康福祉", "region": "県", "base_url": "https://www.pref.aichi.jp/soshiki/kenko/", "tier": "daily", "link_selector": "a[href*='/kenko/']", "enabled": true},
+    {"id": "aichi-pref-kenko", "name": "愛知県 健康・福祉", "region": "県", "base_url": "https://www.pref.aichi.jp/life/3/", "tier": "daily", "link_selector": "a[href*='pref.aichi.jp']", "enabled": true},
     {"id": "mhlw", "name": "厚生労働省 健康・医療", "region": "国", "base_url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/", "tier": "weekly", "link_selector": "a[href*='/kenkou_iryou/']", "enabled": true},
     {"id": "hellowork", "name": "ハローワーク", "region": "国", "base_url": "https://www.hellowork.mhlw.go.jp/", "tier": "daily", "link_selector": "a[href*='hellowork']", "enabled": true},
     {"id": "nic-nagoya", "name": "名古屋国際センター", "region": "県", "base_url": "https://www.nic-nagoya.or.jp/", "tier": "weekly", "link_selector": "a[href*='nic-nagoya']", "enabled": true},
