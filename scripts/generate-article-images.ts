@@ -138,7 +138,7 @@ async function summarizeArticle(
   genAI: GoogleGenerativeAI,
   article: Article
 ): Promise<ArticleSummary> {
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite" });
   const catJa = CAT_LABEL_JA[article.cat] ?? article.cat;
   const hints = CATEGORY_HINTS[catJa] ?? "";
 
@@ -191,7 +191,7 @@ async function buildImagePrompt(
   summary: ArticleSummary,
   cat: string
 ): Promise<string> {
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite" });
   const catJa = CAT_LABEL_JA[cat] ?? cat;
   const hints = CATEGORY_HINTS[catJa] ?? "";
 
@@ -233,7 +233,7 @@ async function generateAndSaveImage(
   const model = genAI.getGenerativeModel({
     // 画像生成対応モデル。APIバージョンによって変わる場合があります。
     // 最新モデル名は https://ai.google.dev/ で確認してください。
-    model: "gemini-2.0-flash-preview-image-generation",
+    model: "gemini-2.0-flash-lite-preview-image-generation",
   });
 
   const response = await model.generateContent({

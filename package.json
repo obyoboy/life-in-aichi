@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "gen:images": "tsx --tsconfig tsconfig.scripts.json scripts/generate-article-images.ts",
-    "gen:images:dry": "tsx --tsconfig tsconfig.scripts.json scripts/generate-article-images.ts --dry-run"
+    "gen:images:dry": "tsx --tsconfig tsconfig.scripts.json scripts/generate-article-images.ts --dry-run",
+    "gen:prompts": "tsx --tsconfig tsconfig.scripts.json scripts/generate-image-prompts.ts"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
