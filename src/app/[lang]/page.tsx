@@ -1,10 +1,14 @@
+import { existsSync } from "fs";
+import { join } from "path";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { LANGUAGES, type Lang } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
 import { getArticles, CATEGORIES, CAT_COLORS } from "@/data/articles";
-import { ArticleCard } from "@/components/ArticleCard";
-import { SortableArticleList } from "@/components/SortableArticleList";
+import { BlogArticleGrid } from "@/components/articles/BlogArticleGrid";
+import { SidebarCategories } from "@/components/layout/SidebarCategories";
+import { SidebarPopular } from "@/components/layout/SidebarPopular";
+import { SidebarArchive } from "@/components/layout/SidebarArchive";
 import { LineCTA } from "@/components/LineCTA";
 import { buildLanguageAlternates } from "@/lib/seo";
 import { assertArticleDataIntegrity } from "@/lib/articleDataValidation";
@@ -44,6 +48,16 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const t = getTranslations(typedLang);
   const articles = getArticles(typedLang);
 
+  const imageDir = join(process.cwd(), "public", "images", "articles");
+  const imageSet = articles
+    .filter((a) => existsSync(join(imageDir, `${a.id}.png`)))
+    .map((a) => a.id);
+
+  const categoryCounts: Record<string, number> = {};
+  for (const cat of CATEGORIES) {
+    categoryCounts[cat.id] = articles.filter((a) => a.cat === cat.id).length;
+  }
+
   const catLabel = (id: string) => {
     const map: Record<string, string> = {
       childcare: t.catChildcare,
@@ -56,7 +70,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
 
   return (
     <>
-      {/* Hero */}
+      {/* Hero — 変更なし */}
       <div className="hero">
         <div className="hero-pattern" />
         <div className="hero-content">
@@ -68,7 +82,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </div>
 
-      {/* Categories */}
+      {/* Categories — 変更なし */}
       <div className="section">
         <h2 className="section-title">{t.categories}</h2>
         <div className="cat-grid">
@@ -92,14 +106,34 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </div>
 
-      {/* All Articles */}
-      <div className="section">
-        <h2 className="section-title">{t.allArticles}</h2>
-        <SortableArticleList lang={typedLang} t={t} articles={articles} />
+      {/* 2カラムレイアウト — カテゴリ以下 */}
+      <div className="main-layout">
+        <div className="main-content">
+          <BlogArticleGrid
+            lang={typedLang}
+            t={t}
+            articles={articles}
+            imageSet={imageSet}
+          />
+        </div>
+
+        <aside className="sidebar">
+          <SidebarCategories
+            lang={typedLang}
+            t={t}
+            categoryCounts={categoryCounts}
+          />
+          <SidebarPopular
+            lang={typedLang}
+            t={t}
+            articles={articles}
+            imageSet={new Set(imageSet)}
+          />
+          <SidebarArchive lang={typedLang} t={t} articles={articles} />
+        </aside>
       </div>
 
-      {/* LINE CTA */}
-      <div className="section">
+      <div className="section" style={{ maxWidth: "1200px", paddingTop: 0 }}>
         <LineCTA t={t} />
       </div>
     </>

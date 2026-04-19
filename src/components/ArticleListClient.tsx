@@ -6,8 +6,7 @@ import type { Lang } from "@/lib/i18n";
 import type { Translations } from "@/lib/translations";
 import type { Article, Category } from "@/data/articles";
 import { CATEGORIES, CAT_COLORS } from "@/data/articles";
-import { ArticleCard } from "@/components/ArticleCard";
-import { LineCTA } from "@/components/LineCTA";
+import { BlogArticleCard } from "@/components/articles/BlogArticleCard";
 import Link from "next/link";
 
 const isCategoryId = (value: string | null): value is Category =>
@@ -17,12 +16,14 @@ export function ArticleListClient({
   lang,
   t,
   articles,
+  imageSet,
   initialCat,
   initialQuery,
 }: {
   lang: Lang;
   t: Translations;
   articles: Article[];
+  imageSet: Set<string>;
   initialCat: string | null;
   initialQuery: string;
 }) {
@@ -34,7 +35,6 @@ export function ArticleListClient({
   );
   const [searchQuery, setSearchQuery] = useState(initialQuery);
 
-  // Debounced URL sync — state drives URL, not the reverse
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -78,12 +78,12 @@ export function ArticleListClient({
   });
 
   return (
-    <div className="section">
+    <div>
       <Link href={`/${lang}`} className="back-btn">
         {t.backToHome}
       </Link>
 
-      <h2 className="section-title">
+      <h2 className="section-title" style={{ marginTop: "0.5rem" }}>
         {selectedCat ? catLabel(selectedCat) : t.allArticles}
       </h2>
 
@@ -127,14 +127,21 @@ export function ArticleListClient({
       </div>
 
       {/* Results */}
-      <div className="article-list">
-        {filtered.length === 0 && <div className="empty-state">{t.noResults}</div>}
-        {filtered.map((a) => (
-          <ArticleCard key={a.id} article={a} lang={lang} t={t} catLabel={catLabel} />
-        ))}
-      </div>
-
-      <LineCTA t={t} />
+      {filtered.length === 0 ? (
+        <div className="empty-state">{t.noResults}</div>
+      ) : (
+        <div className="article-grid">
+          {filtered.map((a) => (
+            <BlogArticleCard
+              key={a.id}
+              article={a}
+              lang={lang}
+              t={t}
+              hasImage={imageSet.has(a.id)}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

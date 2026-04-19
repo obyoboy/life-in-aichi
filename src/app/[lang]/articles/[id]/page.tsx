@@ -7,8 +7,10 @@ import { LANGUAGES } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
 import { getArticleById, getArticles, CATEGORIES, CAT_COLORS, CTA_MAP } from "@/data/articles";
 import { LineCTA } from "@/components/LineCTA";
-import { ArticleCard } from "@/components/ArticleCard";
-import { TableOfContents } from "@/components/TableOfContents";
+import { BlogArticleCard } from "@/components/articles/BlogArticleCard";
+import { SidebarTOC } from "@/components/layout/SidebarTOC";
+import { SidebarCategories } from "@/components/layout/SidebarCategories";
+import { SidebarPopular } from "@/components/layout/SidebarPopular";
 import { ArticleHeroImage } from "@/components/ArticleHeroImage";
 import type { Metadata } from "next";
 import { buildLanguageAlternates, getSiteUrl } from "@/lib/seo";
@@ -219,6 +221,16 @@ export default async function ArticlePage({
         { id: "sec-7", label: t.sec7 },
       ];
 
+  const allArticles = getArticles(typedLang);
+  const imageDir = join(process.cwd(), "public", "images", "articles");
+  const imageSet = new Set(
+    allArticles.filter((a) => existsSync(join(imageDir, `${a.id}.png`))).map((a) => a.id)
+  );
+  const categoryCounts: Record<string, number> = {};
+  for (const cat of CATEGORIES) {
+    categoryCounts[cat.id] = allArticles.filter((a) => a.cat === cat.id).length;
+  }
+
   const articleJsonLd = generateArticleJsonLd(article, typedLang, t);
   const breadcrumbJsonLd = generateBreadcrumbJsonLd([
     { name: t.siteTitle, url: `${base}/${typedLang}` },
@@ -228,7 +240,7 @@ export default async function ArticlePage({
   const faqJsonLd = generateFaqJsonLd(article, t);
 
   return (
-    <div className="section">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
@@ -242,175 +254,194 @@ export default async function ArticlePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <Link href={`/${lang}/articles`} className="back-btn">
-        {t.backToList}
-      </Link>
+      <div className="main-layout">
+        <div className="main-content">
+          <Link href={`/${lang}/articles`} className="back-btn">
+            {t.backToList}
+          </Link>
 
-      <article>
-        {/* Article header */}
-        <div className="article-header" style={{ borderLeftColor: catColor }}>
-          <span
-            className="cat-badge"
-            style={{
-              background: catColor + "22",
-              color: catColor,
-              marginBottom: 8,
-              display: "inline-block",
-            }}
-          >
-            <span aria-hidden="true">{catObj?.icon}</span> {catLabel(article.cat)}
-          </span>
-          <h1>{article.title}</h1>
-          {hasHeroImage && (
-            <ArticleHeroImage slug={id} alt={heroAltByLang[typedLang]} />
-          )}
-          <div className="article-meta">
-            <span>
-              {t.regionLabel}: {article.region}
-            </span>
-            <span className="verified-date">
-              <span aria-hidden="true">✓</span> {t.sec9}: {s.s9}
-            </span>
-          </div>
-        </div>
+          <article>
+            {/* Article header */}
+            <div className="article-header" style={{ borderLeftColor: catColor }}>
+              <span
+                className="cat-badge"
+                style={{
+                  background: catColor + "22",
+                  color: catColor,
+                  marginBottom: 8,
+                  display: "inline-block",
+                }}
+              >
+                <span aria-hidden="true">{catObj?.icon}</span> {catLabel(article.cat)}
+              </span>
+              <h1>{article.title}</h1>
+              {hasHeroImage && (
+                <ArticleHeroImage slug={id} alt={heroAltByLang[typedLang]} />
+              )}
+              <div className="article-meta">
+                <span>
+                  {t.regionLabel}: {article.region}
+                </span>
+                <span className="verified-date">
+                  <span aria-hidden="true">✓</span> {t.sec9}: {s.s9}
+                </span>
+              </div>
+            </div>
 
-        {intro && (
-          <div className="intro-box">
-            <p className="intro-text">{intro}</p>
-          </div>
-        )}
-
-        {/* Eligibility highlight */}
-        <div className="eligibility-box">
-          <div
-            className="eligibility-icon"
-            role="img"
-            aria-label={t.sec2}
-          >
-            ✅
-          </div>
-          <div>
-            <div className="eligibility-title">{t.sec2}</div>
-            <div className="eligibility-text">{s.s2}</div>
-            {s.s2note && (
-              <div className="eligibility-note">
-                <span aria-hidden="true">⚠️</span> {s.s2note}
+            {intro && (
+              <div className="intro-box">
+                <p className="intro-text">{intro}</p>
               </div>
             )}
-          </div>
-        </div>
 
-        {/* Table of contents */}
-        <TableOfContents items={tocItems} tocLabel={tocLabelByLang[typedLang]} />
-
-        {hasStructuredContent ? (
-          <div className="content-section-wrap">
-            {contentSections.map((section, index) => (
-              <StructuredSection
-                key={`${index}-${section.h2}`}
-                id={`section-${index}`}
-                title={section.h2}
-                body={section.body}
-                bullets={section.bullets}
-                note={section.note}
-                subsections={section.subsections}
-              />
-            ))}
-          </div>
-        ) : (
-          <>
-            <SectionBlock id="sec-1" num="1" title={t.sec1} accent={catColor}>
-              <p className="body-text">{s.s1}</p>
-            </SectionBlock>
-
-            <SectionBlock id="sec-3" num="3" title={t.sec3} accent={catColor}>
-              <p className="body-text">{s.s3}</p>
-            </SectionBlock>
-
-            <SectionBlock id="sec-4" num="4" title={t.sec4} accent={catColor}>
-              <pre className="amount-box">{s.s4}</pre>
-            </SectionBlock>
-
-            <SectionBlock id="sec-5" num="5" title={t.sec5} accent={catColor}>
-              <p className="body-text">{s.s5}</p>
-            </SectionBlock>
-
-            <SectionBlock id="sec-6" num="6" title={t.sec6} accent={catColor}>
-              <pre className="doc-list">{s.s6}</pre>
-            </SectionBlock>
-
-            <SectionBlock id="sec-7" num="7" title={t.sec7} accent={catColor}>
-              <pre className="mistake-list">{s.s7}</pre>
-            </SectionBlock>
-          </>
-        )}
-
-        {/* Section 8: Official page */}
-        <div className="official-box">
-          <div className="official-label">{t.sec8}</div>
-          <a href={s.s8} target="_blank" rel="noopener noreferrer" className="official-link">
-            {s.s8}
-          </a>
-        </div>
-
-        {/* Section 10: Help */}
-        <div className="help-box">
-          <div className="help-title">{t.sec10}</div>
-          <pre className="help-text">{s.s10}</pre>
-        </div>
-
-        {/* FAQ accordion */}
-        {faqItems.length > 0 && (
-          <section className="faq-section" aria-labelledby="faq-heading">
-            <h2 className="section-title" id="faq-heading">
-              {faqHeadingByLang[typedLang]}
-            </h2>
-            <div className="faq-list">
-              {faqItems.map((faq, index) => (
-                <details className="faq-item" key={`${index}-${faq.question}`}>
-                  <summary className="faq-summary">{faq.question}</summary>
-                  <div className="faq-answer-body">
-                    <p className="faq-answer">{faq.answer}</p>
+            {/* Eligibility highlight */}
+            <div className="eligibility-box">
+              <div
+                className="eligibility-icon"
+                role="img"
+                aria-label={t.sec2}
+              >
+                ✅
+              </div>
+              <div>
+                <div className="eligibility-title">{t.sec2}</div>
+                <div className="eligibility-text">{s.s2}</div>
+                {s.s2note && (
+                  <div className="eligibility-note">
+                    <span aria-hidden="true">⚠️</span> {s.s2note}
                   </div>
-                </details>
-              ))}
+                )}
+              </div>
             </div>
-          </section>
-        )}
-      </article>
 
-      {/* Related articles */}
-      {relatedArticles.length > 0 && (
-        <aside className="related-section">
-          <h2 className="section-title">{relatedHeadingByLang[typedLang]}</h2>
-          <div className="article-list">
-            {relatedArticles.map((related) => (
-              <ArticleCard
-                key={related.id}
-                article={related}
-                lang={typedLang}
-                t={t}
-                catLabel={catLabel}
-              />
-            ))}
+            {hasStructuredContent ? (
+              <div className="content-section-wrap">
+                {contentSections.map((section, index) => (
+                  <StructuredSection
+                    key={`${index}-${section.h2}`}
+                    id={`section-${index}`}
+                    title={section.h2}
+                    body={section.body}
+                    bullets={section.bullets}
+                    note={section.note}
+                    subsections={section.subsections}
+                  />
+                ))}
+              </div>
+            ) : (
+              <>
+                <SectionBlock id="sec-1" num="1" title={t.sec1} accent={catColor}>
+                  <p className="body-text">{s.s1}</p>
+                </SectionBlock>
+
+                <SectionBlock id="sec-3" num="3" title={t.sec3} accent={catColor}>
+                  <p className="body-text">{s.s3}</p>
+                </SectionBlock>
+
+                <SectionBlock id="sec-4" num="4" title={t.sec4} accent={catColor}>
+                  <pre className="amount-box">{s.s4}</pre>
+                </SectionBlock>
+
+                <SectionBlock id="sec-5" num="5" title={t.sec5} accent={catColor}>
+                  <p className="body-text">{s.s5}</p>
+                </SectionBlock>
+
+                <SectionBlock id="sec-6" num="6" title={t.sec6} accent={catColor}>
+                  <pre className="doc-list">{s.s6}</pre>
+                </SectionBlock>
+
+                <SectionBlock id="sec-7" num="7" title={t.sec7} accent={catColor}>
+                  <pre className="mistake-list">{s.s7}</pre>
+                </SectionBlock>
+              </>
+            )}
+
+            {/* Section 8: Official page */}
+            <div className="official-box">
+              <div className="official-label">{t.sec8}</div>
+              <a href={s.s8} target="_blank" rel="noopener noreferrer" className="official-link">
+                {s.s8}
+              </a>
+            </div>
+
+            {/* FAQ — always open */}
+            {faqItems.length > 0 && (
+              <section className="faq-section" aria-labelledby="faq-heading">
+                <h2 className="faq-heading" id="faq-heading">
+                  {faqHeadingByLang[typedLang]}
+                </h2>
+                <div className="faq-list">
+                  {faqItems.map((faq, index) => (
+                    <div className="faq-item" key={`${index}-${faq.question}`}>
+                      <div className="faq-question">
+                        <span className="faq-q-icon" aria-hidden="true">Q</span>
+                        <h3 className="faq-q-text">{faq.question}</h3>
+                      </div>
+                      <div className="faq-answer-body">
+                        <p className="faq-answer">{faq.answer}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+          </article>
+
+          {/* Related articles */}
+          {relatedArticles.length > 0 && (
+            <section className="related-section">
+              <h2 className="section-title">{relatedHeadingByLang[typedLang]}</h2>
+              <div className="article-grid">
+                {relatedArticles.map((related) => (
+                  <BlogArticleCard
+                    key={related.id}
+                    article={related}
+                    lang={typedLang}
+                    t={t}
+                    hasImage={imageSet.has(related.id)}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Contextual CTA — labeled as PR */}
+          {cta && (
+            <div className="cta-wrapper">
+              <span className="cta-pr-label">PR</span>
+              <div className="cta-box" style={{ borderColor: cta.color }}>
+                <div className="cta-text">{(t as Record<string, string>)[cta.key]}</div>
+                <button type="button" className="cta-btn" style={{ background: cta.color }}>
+                  {(t as Record<string, string>)[cta.btnKey]}
+                </button>
+              </div>
+            </div>
+          )}
+
+          <LineCTA t={t} />
+        </div>
+
+        <aside className="sidebar">
+          <SidebarTOC items={tocItems} tocLabel={t.sidebarToc} />
+          <SidebarCategories
+            lang={typedLang}
+            t={t}
+            categoryCounts={categoryCounts}
+            activeCat={article.cat}
+          />
+          <SidebarPopular
+            lang={typedLang}
+            t={t}
+            articles={allArticles}
+            imageSet={imageSet}
+          />
+          {/* Help / 相談先 */}
+          <div className="sidebar-section">
+            <h2 className="sidebar-heading">{t.sidebarHelp}</h2>
+            <pre className="sidebar-help-text">{s.s10}</pre>
           </div>
         </aside>
-      )}
-
-      {/* Contextual CTA — moved after related articles, labeled as PR */}
-      {cta && (
-        <div className="cta-wrapper">
-          <span className="cta-pr-label">PR</span>
-          <div className="cta-box" style={{ borderColor: cta.color }}>
-            <div className="cta-text">{(t as Record<string, string>)[cta.key]}</div>
-            <button type="button" className="cta-btn" style={{ background: cta.color }}>
-              {(t as Record<string, string>)[cta.btnKey]}
-            </button>
-          </div>
-        </div>
-      )}
-
-      <LineCTA t={t} />
-    </div>
+      </div>
+    </>
   );
 }
