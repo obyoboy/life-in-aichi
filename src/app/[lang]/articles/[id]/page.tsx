@@ -6,6 +6,7 @@ import { getTranslations } from "@/lib/translations";
 import { getArticleById, getArticles, CATEGORIES, CAT_COLORS, CTA_MAP } from "@/data/articles";
 import { LineCTA } from "@/components/LineCTA";
 import { ArticleCard } from "@/components/ArticleCard";
+import { TableOfContents } from "@/components/TableOfContents";
 import type { Metadata } from "next";
 import { buildLanguageAlternates, getSiteUrl } from "@/lib/seo";
 import { assertArticleDataIntegrity } from "@/lib/articleDataValidation";
@@ -22,6 +23,13 @@ export function generateStaticParams() {
   }
   return params;
 }
+
+const LOCALE_MAP: Record<Lang, string> = {
+  en: "en_US",
+  vi: "vi_VN",
+  tl: "tl_PH",
+  ja: "ja_JP",
+};
 
 export async function generateMetadata({
   params,
@@ -50,28 +58,37 @@ export async function generateMetadata({
       description: pageDescription,
       url: canonicalPath,
       type: "article",
+      locale: LOCALE_MAP[typedLang],
+      siteName: "Life in Aichi",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description: pageDescription,
     },
   };
 }
 
 function SectionBlock({
+  id,
   num,
   title,
   accent,
   children,
 }: {
+  id: string;
   num: string;
   title: string;
   accent: string;
   children: React.ReactNode;
 }) {
   return (
-    <div className="section-block">
+    <div id={id} className="section-block">
       <div className="section-block-header">
-        <span className="section-num" style={{ background: accent }}>
+        <span className="section-num" style={{ background: accent }} aria-hidden="true">
           {num}
         </span>
-        <h3>{title}</h3>
+        <h2>{title}</h2>
       </div>
       <div className="section-block-body">{children}</div>
     </div>
@@ -79,12 +96,14 @@ function SectionBlock({
 }
 
 function StructuredSection({
+  id,
   title,
   body,
   bullets,
   note,
   subsections,
 }: {
+  id: string;
   title: string;
   body?: string;
   bullets?: string[];
@@ -92,7 +111,7 @@ function StructuredSection({
   subsections?: { h3: string; body: string }[];
 }) {
   return (
-    <section className="content-section">
+    <section id={id} className="content-section">
       <h2 className="section-title">{title}</h2>
       {body && <p className="body-text">{body}</p>}
 
@@ -156,18 +175,37 @@ export default async function ArticlePage({
   const relatedArticles = getArticles(typedLang)
     .filter((a) => a.cat === article.cat && a.id !== article.id)
     .slice(0, 3);
+
   const faqHeadingByLang: Record<Lang, string> = {
     en: "Frequently asked questions",
-    vi: "Cau hoi thuong gap",
+    vi: "Câu hỏi thường gặp",
     tl: "Madalas itanong",
     ja: "よくある質問",
   };
   const relatedHeadingByLang: Record<Lang, string> = {
     en: "Related articles",
-    vi: "Bai viet lien quan",
+    vi: "Bài viết liên quan",
     tl: "Mga kaugnay na artikulo",
     ja: "関連記事",
   };
+  const tocLabelByLang: Record<Lang, string> = {
+    en: "Table of Contents",
+    vi: "Mục lục",
+    tl: "Talaan ng Nilalaman",
+    ja: "目次",
+  };
+
+  // Build TOC items
+  const tocItems = hasStructuredContent
+    ? contentSections.map((section, i) => ({ id: `section-${i}`, label: section.h2 }))
+    : [
+        { id: "sec-1", label: t.sec1 },
+        { id: "sec-3", label: t.sec3 },
+        { id: "sec-4", label: t.sec4 },
+        { id: "sec-5", label: t.sec5 },
+        { id: "sec-6", label: t.sec6 },
+        { id: "sec-7", label: t.sec7 },
+      ];
 
   const articleJsonLd = generateArticleJsonLd(article, typedLang, t);
   const breadcrumbJsonLd = generateBreadcrumbJsonLd([
@@ -191,137 +229,144 @@ export default async function ArticlePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+
       <Link href={`/${lang}/articles`} className="back-btn">
         {t.backToList}
       </Link>
 
-      {/* Article header */}
-      <div className="article-header" style={{ borderLeftColor: catColor }}>
-        <span
-          className="cat-badge"
-          style={{
-            background: catColor + "22",
-            color: catColor,
-            marginBottom: 8,
-            display: "inline-block",
-          }}
-        >
-          {catObj?.icon} {catLabel(article.cat)}
-        </span>
-        <h1>{article.title}</h1>
-        <div className="article-meta">
-          <span>
-            {t.regionLabel}: {article.region}
+      <article>
+        {/* Article header */}
+        <div className="article-header" style={{ borderLeftColor: catColor }}>
+          <span
+            className="cat-badge"
+            style={{
+              background: catColor + "22",
+              color: catColor,
+              marginBottom: 8,
+              display: "inline-block",
+            }}
+          >
+            <span aria-hidden="true">{catObj?.icon}</span> {catLabel(article.cat)}
           </span>
-          <span className="verified-date">
-            ✓ {t.sec9}: {s.s9}
-          </span>
-        </div>
-      </div>
-
-      {intro && (
-        <div className="intro-box">
-          <p className="intro-text">{intro}</p>
-        </div>
-      )}
-
-      {/* Eligibility highlight */}
-      <div className="eligibility-box">
-        <div className="eligibility-icon">✅</div>
-        <div>
-          <div className="eligibility-title">{t.sec2}</div>
-          <div className="eligibility-text">{s.s2}</div>
-          {s.s2note && <div className="eligibility-note">⚠️ {s.s2note}</div>}
-        </div>
-      </div>
-
-      {hasStructuredContent ? (
-        <div className="content-section-wrap">
-          {contentSections.map((section, index) => (
-            <StructuredSection
-              key={`${index}-${section.h2}`}
-              title={section.h2}
-              body={section.body}
-              bullets={section.bullets}
-              note={section.note}
-              subsections={section.subsections}
-            />
-          ))}
-        </div>
-      ) : (
-        <>
-          {/* Section 1: What is this? */}
-          <SectionBlock num="1" title={t.sec1} accent={catColor}>
-            <p className="body-text">{s.s1}</p>
-          </SectionBlock>
-
-          {/* Section 3: Who is eligible? */}
-          <SectionBlock num="3" title={t.sec3} accent={catColor}>
-            <p className="body-text">{s.s3}</p>
-          </SectionBlock>
-
-          {/* Section 4: How much? */}
-          <SectionBlock num="4" title={t.sec4} accent={catColor}>
-            <pre className="amount-box">{s.s4}</pre>
-          </SectionBlock>
-
-          {/* Section 5: Where to apply? */}
-          <SectionBlock num="5" title={t.sec5} accent={catColor}>
-            <p className="body-text">{s.s5}</p>
-          </SectionBlock>
-
-          {/* Section 6: Required documents */}
-          <SectionBlock num="6" title={t.sec6} accent={catColor}>
-            <pre className="doc-list">{s.s6}</pre>
-          </SectionBlock>
-
-          {/* Section 7: Common mistakes */}
-          <SectionBlock num="7" title={t.sec7} accent={catColor}>
-            <pre className="mistake-list">{s.s7}</pre>
-          </SectionBlock>
-        </>
-      )}
-
-      {/* Section 8: Official page */}
-      <div className="official-box">
-        <div className="official-label">{t.sec8}</div>
-        <a href={s.s8} target="_blank" rel="noopener noreferrer" className="official-link">
-          {s.s8}
-        </a>
-      </div>
-
-      {/* Contextual CTA */}
-      {cta && (
-        <div className="cta-box" style={{ borderColor: cta.color }}>
-          <div className="cta-text">{(t as Record<string, string>)[cta.key]}</div>
-          <button type="button" className="cta-btn" style={{ background: cta.color }}>
-            {(t as Record<string, string>)[cta.btnKey]}
-          </button>
-        </div>
-      )}
-
-      {/* Section 10: Help */}
-      <div className="help-box">
-        <div className="help-title">{t.sec10}</div>
-        <pre className="help-text">{s.s10}</pre>
-      </div>
-
-      {faqItems.length > 0 && (
-        <div className="faq-section">
-          <h2 className="section-title">{faqHeadingByLang[typedLang]}</h2>
-          <div className="faq-list">
-            {faqItems.map((faq, index) => (
-              <div className="faq-item" key={`${index}-${faq.question}`}>
-                <h3 className="faq-question">{faq.question}</h3>
-                <p className="faq-answer">{faq.answer}</p>
-              </div>
-            ))}
+          <h1>{article.title}</h1>
+          <div className="article-meta">
+            <span>
+              {t.regionLabel}: {article.region}
+            </span>
+            <span className="verified-date">
+              <span aria-hidden="true">✓</span> {t.sec9}: {s.s9}
+            </span>
           </div>
         </div>
-      )}
 
+        {intro && (
+          <div className="intro-box">
+            <p className="intro-text">{intro}</p>
+          </div>
+        )}
+
+        {/* Eligibility highlight */}
+        <div className="eligibility-box">
+          <div
+            className="eligibility-icon"
+            role="img"
+            aria-label={t.sec2}
+          >
+            ✅
+          </div>
+          <div>
+            <div className="eligibility-title">{t.sec2}</div>
+            <div className="eligibility-text">{s.s2}</div>
+            {s.s2note && (
+              <div className="eligibility-note">
+                <span aria-hidden="true">⚠️</span> {s.s2note}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Table of contents */}
+        <TableOfContents items={tocItems} tocLabel={tocLabelByLang[typedLang]} />
+
+        {hasStructuredContent ? (
+          <div className="content-section-wrap">
+            {contentSections.map((section, index) => (
+              <StructuredSection
+                key={`${index}-${section.h2}`}
+                id={`section-${index}`}
+                title={section.h2}
+                body={section.body}
+                bullets={section.bullets}
+                note={section.note}
+                subsections={section.subsections}
+              />
+            ))}
+          </div>
+        ) : (
+          <>
+            <SectionBlock id="sec-1" num="1" title={t.sec1} accent={catColor}>
+              <p className="body-text">{s.s1}</p>
+            </SectionBlock>
+
+            <SectionBlock id="sec-3" num="3" title={t.sec3} accent={catColor}>
+              <p className="body-text">{s.s3}</p>
+            </SectionBlock>
+
+            <SectionBlock id="sec-4" num="4" title={t.sec4} accent={catColor}>
+              <pre className="amount-box">{s.s4}</pre>
+            </SectionBlock>
+
+            <SectionBlock id="sec-5" num="5" title={t.sec5} accent={catColor}>
+              <p className="body-text">{s.s5}</p>
+            </SectionBlock>
+
+            <SectionBlock id="sec-6" num="6" title={t.sec6} accent={catColor}>
+              <pre className="doc-list">{s.s6}</pre>
+            </SectionBlock>
+
+            <SectionBlock id="sec-7" num="7" title={t.sec7} accent={catColor}>
+              <pre className="mistake-list">{s.s7}</pre>
+            </SectionBlock>
+          </>
+        )}
+
+        {/* Section 8: Official page */}
+        <div className="official-box">
+          <div className="official-label">{t.sec8}</div>
+          <a href={s.s8} target="_blank" rel="noopener noreferrer" className="official-link">
+            {s.s8}
+          </a>
+        </div>
+
+        {/* Section 10: Help */}
+        <div className="help-box">
+          <div className="help-title">{t.sec10}</div>
+          <pre className="help-text">{s.s10}</pre>
+        </div>
+
+        {/* FAQ accordion */}
+        {faqItems.length > 0 && (
+          <section className="faq-section" aria-labelledby="faq-heading">
+            <h2 className="section-title" id="faq-heading">
+              {faqHeadingByLang[typedLang]}
+            </h2>
+            <div className="faq-list">
+              {faqItems.map((faq, index) => (
+                <details className="faq-item" key={`${index}-${faq.question}`}>
+                  <summary className="faq-summary">{faq.question}</summary>
+                  <div className="faq-answer-body">
+                    <p className="faq-answer">{faq.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
+      </article>
+
+      {/* Related articles */}
       {relatedArticles.length > 0 && (
-        <div className="related-section">
+        <aside className="related-section">
           <h2 className="section-title">{relatedHeadingByLang[typedLang]}</h2>
           <div className="article-list">
             {relatedArticles.map((related) => (
@@ -333,6 +378,19 @@ export default async function ArticlePage({
                 catLabel={catLabel}
               />
             ))}
+          </div>
+        </aside>
+      )}
+
+      {/* Contextual CTA — moved after related articles, labeled as PR */}
+      {cta && (
+        <div className="cta-wrapper">
+          <span className="cta-pr-label">PR</span>
+          <div className="cta-box" style={{ borderColor: cta.color }}>
+            <div className="cta-text">{(t as Record<string, string>)[cta.key]}</div>
+            <button type="button" className="cta-btn" style={{ background: cta.color }}>
+              {(t as Record<string, string>)[cta.btnKey]}
+            </button>
           </div>
         </div>
       )}
