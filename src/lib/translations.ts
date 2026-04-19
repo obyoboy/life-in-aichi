@@ -48,6 +48,7 @@ const translations = {
     sortLatest: "Latest",
     sortPopular: "Popular",
     eligibleBadge: "✓ Foreigners OK",
+    relatedArticles: "Related articles",
   },
   vi: {
     siteTitle: "Cuộc sống tại Aichi",
@@ -96,6 +97,7 @@ const translations = {
     sortLatest: "Mới nhất",
     sortPopular: "Phổ biến",
     eligibleBadge: "✓ Người nước ngoài OK",
+    relatedArticles: "Bài viết liên quan",
   },
   tl: {
     siteTitle: "Buhay sa Aichi",
@@ -144,6 +146,7 @@ const translations = {
     sortLatest: "Pinakabago",
     sortPopular: "Sikat",
     eligibleBadge: "✓ Para sa dayuhan",
+    relatedArticles: "Mga kaugnay na artikulo",
   },
   ja: {
     siteTitle: "Life in Aichi",
@@ -192,6 +195,7 @@ const translations = {
     sortLatest: "更新順",
     sortPopular: "人気順",
     eligibleBadge: "✓ 外国籍OK",
+    relatedArticles: "あわせて読みたい",
   },
 } as const;
 

@@ -5,6 +5,7 @@ import { LANGUAGES } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
 import { getArticleById, getArticles, CATEGORIES, CAT_COLORS, CTA_MAP } from "@/data/articles";
 import { LineCTA } from "@/components/LineCTA";
+import { ArticleCard } from "@/components/ArticleCard";
 import type { Metadata } from "next";
 import { buildLanguageAlternates, getSiteUrl } from "@/lib/seo";
 import { assertArticleDataIntegrity } from "@/lib/articleDataValidation";
@@ -106,6 +107,15 @@ export default async function ArticlePage({
 
   const typedLang = lang as Lang;
   const base = getSiteUrl().origin;
+  const relatedArticles = getArticles(typedLang)
+    .filter((a) => a.cat === article.cat && a.id !== article.id)
+    .slice(0, 3);
+  const relatedHeadingByLang: Record<Lang, string> = {
+    en: "Related articles",
+    vi: "Bai viet lien quan",
+    tl: "Mga kaugnay na artikulo",
+    ja: "関連記事",
+  };
 
   const articleJsonLd = generateArticleJsonLd(article, typedLang, t);
   const breadcrumbJsonLd = generateBreadcrumbJsonLd([
@@ -220,6 +230,23 @@ export default async function ArticlePage({
         <div className="help-title">{t.sec10}</div>
         <pre className="help-text">{s.s10}</pre>
       </div>
+
+      {relatedArticles.length > 0 && (
+        <div className="related-section">
+          <h2 className="section-title">{relatedHeadingByLang[typedLang]}</h2>
+          <div className="article-list">
+            {relatedArticles.map((related) => (
+              <ArticleCard
+                key={related.id}
+                article={related}
+                lang={typedLang}
+                t={t}
+                catLabel={catLabel}
+              />
+            ))}
+          </div>
+        </div>
+      )}
 
       <LineCTA t={t} />
     </div>

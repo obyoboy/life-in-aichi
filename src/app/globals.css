@@ -550,6 +550,9 @@ a:focus-visible {
 .help-title { font-weight: 700; font-size: 15px; color: #e65100; margin-bottom: 10px; }
 .help-text { font-size: 14px; line-height: 1.7; color: #333; }
 
+/* ─── Related Articles ─── */
+.related-section { margin-top: 28px; }
+
 /* ─── LINE CTA ─── */
 .line-cta {
   background: var(--line-green);
@@ -591,3 +594,49 @@ a:focus-visible {
 
 /* ─── Empty State ─── */
 .empty-state { text-align: center; padding: 40px; color: #999; font-size: 14px; }
+
+/* ─── Related Articles ─── */
+.related-box {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.related-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.related-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.related-card {
+  display: block;
+  padding: 12px 16px;
+  border-left: 4px solid var(--border);
+  border-radius: 6px;
+  background: var(--card-bg, #f8f9fa);
+  transition: background 0.15s;
+  text-decoration: none;
+}
+
+.related-card:hover {
+  background: var(--hover-bg, #eef1f5);
+}
+
+.related-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.related-card-summary {
+  font-size: 13px;
+  color: var(--text-muted);
+}
