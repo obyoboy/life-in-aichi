@@ -1,9 +1,33 @@
 import type { Lang } from "@/lib/i18n";
+import { getTranslations } from "@/lib/translations";
 
 /* ─── Types ─── */
 export type Category = "childcare" | "medical" | "housing" | "work";
 
+export interface ArticleFaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface ArticleContentSubsection {
+  h3: string;
+  body: string;
+}
+
+export interface ArticleContentSection {
+  h2: string;
+  body?: string;
+  bullets?: string[];
+  note?: string;
+  subsections?: ArticleContentSubsection[];
+}
+
 export interface ArticleSections {
+  intro?: string; // Intro paragraph shown near top of article
+  metaTitle?: string; // Optional SEO title override for <title>
+  metaDescription?: string; // Optional SEO description override
+  faq?: ArticleFaqItem[]; // Optional visible FAQ + FAQ JSON-LD source
+  contentSections?: ArticleContentSection[]; // Optional flexible H2/H3 article blocks
   s1: string;  // What is this system?
   s2: string;  // Can foreign nationals use it?
   s2note?: string;
@@ -546,6 +570,116 @@ const LOCALIZED: Partial<Record<Lang, Record<string, ArticleOverride>>> = {
       summary: "給食費・学用品費・修学旅行費などを補助",
       region: "日本全国",
       sections: {
+        intro: "就学援助は、公立小中学校でかかる給食費や学用品費などを、家計が厳しい家庭に補助する制度です。外国籍の家庭も対象になり得ます。条件や申請時期は自治体で異なるため、学校と市区町村で最新情報を確認しましょう。",
+        metaTitle: "外国籍家庭向け就学援助｜給食費・学用品費の支援と申請",
+        metaDescription: "就学援助は、給食費・学用品費・修学旅行費などを自治体が補助する制度です。外国籍の家庭も対象になり得ます。条件や申請時期は市区町村ごとに異なるため、学校と自治体で最新情報を確認しましょう。",
+        faq: [
+          {
+            question: "外国籍でも就学援助を申請できますか？",
+            answer: "はい。住民登録があり、所得などの条件を満たせば、国籍に関係なく申請できる自治体が多いです。",
+          },
+          {
+            question: "在留カードは必要ですか？",
+            answer: "必要になることが多いです。自治体によって必要書類は違うため、学校か教育委員会の案内を確認してください。",
+          },
+          {
+            question: "いつ申請すればいいですか？",
+            answer: "新年度前後に案内が出ることが多いです。年度途中でも申請できる場合がありますが、支給開始時期は自治体で異なります。",
+          },
+          {
+            question: "給食費以外も補助されますか？",
+            answer: "自治体によりますが、学用品費、修学旅行費、入学準備金などが対象になることがあります。",
+          },
+          {
+            question: "学校から案内が来ないときはどうすればいいですか？",
+            answer: "学校の事務室か担任に相談し、就学援助の申請書を希望してください。市区町村や教育委員会の窓口でも確認できます。",
+          },
+          {
+            question: "自治体によって違いはありますか？",
+            answer: "あります。所得基準、対象費目、申請時期、必要書類が異なるため、お住まいの自治体の最新情報を必ず確認してください。",
+          },
+        ],
+        contentSections: [
+          {
+            h2: "1. 制度の概要（全国版）",
+            body: "就学援助は、公立の小学校・中学校でかかる費用を、家計が厳しい家庭に補助する制度です。制度の考え方は全国共通ですが、細かい条件や支給額は市区町村ごとに決まります。",
+            note: "このページは全国版の案内です。自治体の実務は必ず地域の公式情報で確認してください。",
+          },
+          {
+            h2: "2. どんな人が対象？",
+            body: "一般的には、次のような家庭が対象になりやすいです。",
+            bullets: [
+              "公立小中学校に通う子どもがいる",
+              "住民登録がある",
+              "所得が自治体の基準以下である",
+              "生活保護や児童扶養手当の受給状況など、自治体が定める条件に当てはまる",
+            ],
+          },
+          {
+            h2: "3. 補助されることが多い費用",
+            body: "自治体ごとに差はありますが、次の費用が対象になることが多いです。",
+            bullets: [
+              "給食費",
+              "学用品費",
+              "修学旅行費・校外活動費",
+              "入学準備金（新入学学用品費）",
+              "オンライン学習に必要な通信費 など",
+            ],
+            note: "対象費目、支給方法、金額は自治体ごとに異なります。",
+          },
+          {
+            h2: "4. 申請先・申請時期",
+            subsections: [
+              {
+                h3: "申請先",
+                body: "多くの自治体では、子どもが通う学校を通して申請します。教育委員会や市区町村窓口で受け付ける場合もあります。",
+              },
+              {
+                h3: "申請時期",
+                body: "新年度前後に案内が出ることが多いです。年度途中でも受け付ける自治体がありますが、支給開始月の扱いは自治体によって異なります。",
+              },
+            ],
+            note: "学校から案内が来ない場合は、学校の事務室か教育委員会に直接確認しましょう。",
+          },
+          {
+            h2: "5. 外国籍住民が注意したい点",
+            bullets: [
+              "国籍だけを理由に対象外になるとは限りません。まず要件を確認しましょう。",
+              "在留カード、住民登録、所得確認書類などが必要になることがあります。",
+              "日本語の案内が読みにくい場合は、学校や相談窓口でやさしい説明を依頼しましょう。",
+              "期限を過ぎると不利になることがあるため、早めの相談が安心です。",
+            ],
+          },
+          {
+            h2: "6. 自治体ごとの差",
+            body: "就学援助は全国制度の考え方を持ちながら、運用は自治体ごとに違います。次の点は必ず地域ごとに確認してください。",
+            bullets: [
+              "所得基準",
+              "対象になる費目",
+              "申請書の様式と必要書類",
+              "認定期間と更新時期",
+            ],
+          },
+          {
+            h2: "7. 名古屋市は「例」として確認",
+            body: "名古屋市では、就学援助を『未来まなび応援金』と案内しています。呼び方や窓口の流れは自治体によって異なるため、他地域の方は自分の自治体情報を優先してください。",
+            bullets: [
+              "名古屋市の案内は、全国制度を理解するための一例として参考にする",
+              "実際の申請は、お住まいの市区町村の案内で判断する",
+            ],
+          },
+          {
+            h2: "8. 次に確認したい関連記事",
+            body: "就学援助の手続きを進める前後で、次の制度も一緒に確認すると抜け漏れを減らせます。",
+            bullets: [
+              "転入届・住民登録",
+              "児童手当",
+              "子ども医療費助成",
+              "保育園・幼稚園関連",
+              "母子健康手帳",
+            ],
+          },
+        ],
         s1: "子どもが通う公立の小学校・中学校でかかるお金（給食費、学用品費、遠足・修学旅行費など）を市が助けてくれる制度です。名古屋市では「未来まなび応援金」とも呼ばれます。",
         s2: "はい — 日本の公立小中学校に通う子どもがいれば、国籍に関係なく申請できます。名古屋市はベトナム語・タガログ語などの案内も用意しています。",
         s2note: "住民登録と、所得が基準以下であることが条件です。",
@@ -1105,18 +1239,68 @@ const LOCALIZED: Partial<Record<Lang, Record<string, ArticleOverride>>> = {
   },
 };
 
+const BULLET_PREFIX_RE = /^(?:[•●▪■\-]|[0-9]+[.)])\s*/;
+
+function splitLines(value: string): string[] {
+  return value
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+}
+
+function toBodyAndBullets(value: string): Pick<ArticleContentSection, "body" | "bullets"> {
+  const lines = splitLines(value);
+  if (lines.length === 0) return { body: "" };
+
+  const bulletLines = lines.filter((line) => BULLET_PREFIX_RE.test(line));
+  if (bulletLines.length === 0) {
+    return { body: value };
+  }
+
+  const bodyLines = lines.filter((line) => !BULLET_PREFIX_RE.test(line));
+  const bullets = bulletLines.map((line) => line.replace(BULLET_PREFIX_RE, "").trim()).filter(Boolean);
+
+  return {
+    body: bodyLines.length > 0 ? bodyLines.join("\n") : undefined,
+    bullets: bullets.length > 0 ? bullets : undefined,
+  };
+}
+
+function buildLegacyContentSections(lang: Lang, sections: ArticleSections): ArticleContentSection[] {
+  const t = getTranslations(lang);
+  const source = [
+    { title: t.sec1, value: sections.s1 },
+    { title: t.sec3, value: sections.s3 },
+    { title: t.sec4, value: sections.s4 },
+    { title: t.sec5, value: sections.s5 },
+    { title: t.sec6, value: sections.s6 },
+    { title: t.sec7, value: sections.s7 },
+  ];
+
+  return source.map((item, index) => ({
+    h2: `${index + 1}. ${item.title}`,
+    ...toBodyAndBullets(item.value),
+  }));
+}
+
 /* ─── Helper: get localized articles ─── */
 export function getArticles(lang: Lang): Article[] {
   return BASE_ARTICLES.map((article) => {
     const override = LOCALIZED[lang]?.[article.id];
-    if (!override) return article;
+    const mergedSections: ArticleSections = {
+      ...article.sections,
+      ...(override?.sections || {}),
+    };
+
+    const hasStructured = Boolean(mergedSections.contentSections?.length);
+    if (!hasStructured) {
+      mergedSections.contentSections = buildLegacyContentSections(lang, mergedSections);
+    }
+
     return {
       ...article,
-      ...override,
-      sections: {
-        ...article.sections,
-        ...(override.sections || {}),
-      },
+      ...(override || {}),
+      sections: mergedSections,
     } as Article;
   });
 }

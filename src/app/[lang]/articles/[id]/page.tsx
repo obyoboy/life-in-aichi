@@ -33,8 +33,8 @@ export async function generateMetadata({
   const article = getArticleById(lang as Lang, id);
   if (!article) return {};
   const typedLang = lang as Lang;
-  const pageTitle = article.title;
-  const pageDescription = article.sections.s1;
+  const pageTitle = article.sections.metaTitle || article.title;
+  const pageDescription = article.sections.metaDescription || article.sections.intro || article.sections.s1;
   const canonicalPath = `/${typedLang}/articles/${id}`;
   const hreflangMap = buildLanguageAlternates((targetLang) => `/${targetLang}/articles/${id}`);
 
@@ -78,6 +78,48 @@ function SectionBlock({
   );
 }
 
+function StructuredSection({
+  title,
+  body,
+  bullets,
+  note,
+  subsections,
+}: {
+  title: string;
+  body?: string;
+  bullets?: string[];
+  note?: string;
+  subsections?: { h3: string; body: string }[];
+}) {
+  return (
+    <section className="content-section">
+      <h2 className="section-title">{title}</h2>
+      {body && <p className="body-text">{body}</p>}
+
+      {bullets && bullets.length > 0 && (
+        <ul className="content-bullets">
+          {bullets.map((bullet, index) => (
+            <li key={`${index}-${bullet}`}>{bullet}</li>
+          ))}
+        </ul>
+      )}
+
+      {subsections && subsections.length > 0 && (
+        <div className="content-subsection-list">
+          {subsections.map((subsection, index) => (
+            <div className="content-subsection" key={`${index}-${subsection.h3}`}>
+              <h3>{subsection.h3}</h3>
+              <p className="body-text">{subsection.body}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {note && <p className="content-note">※ {note}</p>}
+    </section>
+  );
+}
+
 export default async function ArticlePage({
   params,
 }: {
@@ -107,9 +149,19 @@ export default async function ArticlePage({
 
   const typedLang = lang as Lang;
   const base = getSiteUrl().origin;
+  const intro = s.intro;
+  const contentSections = (s.contentSections || []).filter((section) => section.h2.trim());
+  const hasStructuredContent = contentSections.length > 0;
+  const faqItems = (s.faq || []).filter((item) => item.question.trim() && item.answer.trim());
   const relatedArticles = getArticles(typedLang)
     .filter((a) => a.cat === article.cat && a.id !== article.id)
     .slice(0, 3);
+  const faqHeadingByLang: Record<Lang, string> = {
+    en: "Frequently asked questions",
+    vi: "Cau hoi thuong gap",
+    tl: "Madalas itanong",
+    ja: "よくある質問",
+  };
   const relatedHeadingByLang: Record<Lang, string> = {
     en: "Related articles",
     vi: "Bai viet lien quan",
@@ -167,6 +219,12 @@ export default async function ArticlePage({
         </div>
       </div>
 
+      {intro && (
+        <div className="intro-box">
+          <p className="intro-text">{intro}</p>
+        </div>
+      )}
+
       {/* Eligibility highlight */}
       <div className="eligibility-box">
         <div className="eligibility-icon">✅</div>
@@ -177,35 +235,52 @@ export default async function ArticlePage({
         </div>
       </div>
 
-      {/* Section 1: What is this? */}
-      <SectionBlock num="1" title={t.sec1} accent={catColor}>
-        <p className="body-text">{s.s1}</p>
-      </SectionBlock>
+      {hasStructuredContent ? (
+        <div className="content-section-wrap">
+          {contentSections.map((section, index) => (
+            <StructuredSection
+              key={`${index}-${section.h2}`}
+              title={section.h2}
+              body={section.body}
+              bullets={section.bullets}
+              note={section.note}
+              subsections={section.subsections}
+            />
+          ))}
+        </div>
+      ) : (
+        <>
+          {/* Section 1: What is this? */}
+          <SectionBlock num="1" title={t.sec1} accent={catColor}>
+            <p className="body-text">{s.s1}</p>
+          </SectionBlock>
 
-      {/* Section 3: Who is eligible? */}
-      <SectionBlock num="3" title={t.sec3} accent={catColor}>
-        <p className="body-text">{s.s3}</p>
-      </SectionBlock>
+          {/* Section 3: Who is eligible? */}
+          <SectionBlock num="3" title={t.sec3} accent={catColor}>
+            <p className="body-text">{s.s3}</p>
+          </SectionBlock>
 
-      {/* Section 4: How much? */}
-      <SectionBlock num="4" title={t.sec4} accent={catColor}>
-        <pre className="amount-box">{s.s4}</pre>
-      </SectionBlock>
+          {/* Section 4: How much? */}
+          <SectionBlock num="4" title={t.sec4} accent={catColor}>
+            <pre className="amount-box">{s.s4}</pre>
+          </SectionBlock>
 
-      {/* Section 5: Where to apply? */}
-      <SectionBlock num="5" title={t.sec5} accent={catColor}>
-        <p className="body-text">{s.s5}</p>
-      </SectionBlock>
+          {/* Section 5: Where to apply? */}
+          <SectionBlock num="5" title={t.sec5} accent={catColor}>
+            <p className="body-text">{s.s5}</p>
+          </SectionBlock>
 
-      {/* Section 6: Required documents */}
-      <SectionBlock num="6" title={t.sec6} accent={catColor}>
-        <pre className="doc-list">{s.s6}</pre>
-      </SectionBlock>
+          {/* Section 6: Required documents */}
+          <SectionBlock num="6" title={t.sec6} accent={catColor}>
+            <pre className="doc-list">{s.s6}</pre>
+          </SectionBlock>
 
-      {/* Section 7: Common mistakes */}
-      <SectionBlock num="7" title={t.sec7} accent={catColor}>
-        <pre className="mistake-list">{s.s7}</pre>
-      </SectionBlock>
+          {/* Section 7: Common mistakes */}
+          <SectionBlock num="7" title={t.sec7} accent={catColor}>
+            <pre className="mistake-list">{s.s7}</pre>
+          </SectionBlock>
+        </>
+      )}
 
       {/* Section 8: Official page */}
       <div className="official-box">
@@ -230,6 +305,20 @@ export default async function ArticlePage({
         <div className="help-title">{t.sec10}</div>
         <pre className="help-text">{s.s10}</pre>
       </div>
+
+      {faqItems.length > 0 && (
+        <div className="faq-section">
+          <h2 className="section-title">{faqHeadingByLang[typedLang]}</h2>
+          <div className="faq-list">
+            {faqItems.map((faq, index) => (
+              <div className="faq-item" key={`${index}-${faq.question}`}>
+                <h3 className="faq-question">{faq.question}</h3>
+                <p className="faq-answer">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {relatedArticles.length > 0 && (
         <div className="related-section">

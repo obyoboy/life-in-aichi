@@ -40,6 +40,50 @@ export function assertArticleDataIntegrity(): void {
           `[${lang}/${article.id}] sections.s9 must be YYYY-MM-DD: "${article.sections.s9}"`
         );
       }
+
+      if (article.sections.faq) {
+        article.sections.faq.forEach((faq, index) => {
+          if (!faq.question.trim()) {
+            errors.push(`[${lang}/${article.id}] sections.faq[${index}].question must not be empty`);
+          }
+          if (!faq.answer.trim()) {
+            errors.push(`[${lang}/${article.id}] sections.faq[${index}].answer must not be empty`);
+          }
+        });
+      }
+
+      if (article.sections.contentSections) {
+        article.sections.contentSections.forEach((section, sectionIndex) => {
+          if (!section.h2.trim()) {
+            errors.push(
+              `[${lang}/${article.id}] sections.contentSections[${sectionIndex}].h2 must not be empty`
+            );
+          }
+
+          const hasBody = Boolean(section.body?.trim());
+          const hasBullets = Boolean(section.bullets?.length);
+          const hasSubsections = Boolean(section.subsections?.length);
+
+          if (!hasBody && !hasBullets && !hasSubsections) {
+            errors.push(
+              `[${lang}/${article.id}] sections.contentSections[${sectionIndex}] requires body, bullets, or subsections`
+            );
+          }
+
+          section.subsections?.forEach((subsection, subIndex) => {
+            if (!subsection.h3.trim()) {
+              errors.push(
+                `[${lang}/${article.id}] sections.contentSections[${sectionIndex}].subsections[${subIndex}].h3 must not be empty`
+              );
+            }
+            if (!subsection.body.trim()) {
+              errors.push(
+                `[${lang}/${article.id}] sections.contentSections[${sectionIndex}].subsections[${subIndex}].body must not be empty`
+              );
+            }
+          });
+        });
+      }
     }
   }
 

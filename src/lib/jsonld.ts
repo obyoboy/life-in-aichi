@@ -10,12 +10,14 @@ export function generateArticleJsonLd(
 ): object {
   const base = getSiteUrl().origin;
   const url = `${base}/${lang}/articles/${article.id}`;
+  const description =
+    article.sections.metaDescription || article.sections.intro || article.sections.s1;
 
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
-    description: article.sections.s1,
+    description,
     url,
     dateModified: article.sections.s9,
     inLanguage: lang,
@@ -46,24 +48,34 @@ export function generateFaqJsonLd(
   article: Article,
   t: Translations
 ): object {
-  const faqs: { question: string; answer: string }[] = [
-    {
-      question: `${t.sec2} — ${article.title}`,
-      answer: article.sections.s2 + (article.sections.s2note ? ` (${article.sections.s2note})` : ""),
-    },
-    {
-      question: `${t.sec4} — ${article.title}`,
-      answer: article.sections.s4.replace(/\n/g, " "),
-    },
-    {
-      question: `${t.sec3} — ${article.title}`,
-      answer: article.sections.s3,
-    },
-    {
-      question: `${t.sec5} — ${article.title}`,
-      answer: article.sections.s5.replace(/\n/g, " "),
-    },
-  ];
+  const explicitFaqs = (article.sections.faq || []).filter(
+    (faq) => faq.question.trim() && faq.answer.trim()
+  );
+
+  const faqs: { question: string; answer: string }[] =
+    explicitFaqs.length > 0
+      ? explicitFaqs.map((faq) => ({
+          question: faq.question,
+          answer: faq.answer.replace(/\n/g, " "),
+        }))
+      : [
+          {
+            question: `${t.sec2} — ${article.title}`,
+            answer: article.sections.s2 + (article.sections.s2note ? ` (${article.sections.s2note})` : ""),
+          },
+          {
+            question: `${t.sec4} — ${article.title}`,
+            answer: article.sections.s4.replace(/\n/g, " "),
+          },
+          {
+            question: `${t.sec3} — ${article.title}`,
+            answer: article.sections.s3,
+          },
+          {
+            question: `${t.sec5} — ${article.title}`,
+            answer: article.sections.s5.replace(/\n/g, " "),
+          },
+        ];
 
   return {
     "@context": "https://schema.org",
