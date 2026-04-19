@@ -308,6 +308,32 @@ const BASE_ARTICLES: Article[] = [
       s8: "https://www.city.nagoya.jp/kyoiku/page/0000051014.html",
       s9: "2026-04-18",
       s10: "Nagoya Board of Education Student Affairs Division: 052-972-3217\nNagoya International Center: 052-581-0100",
+      faq: [
+        {
+          question: "Can foreigners apply for School Expense Assistance?",
+          answer: "Yes. In most municipalities, anyone with resident registration who meets the income requirements can apply, regardless of nationality.",
+        },
+        {
+          question: "Is a residence card required?",
+          answer: "In most cases, yes. Required documents vary by municipality — check with your child's school or Board of Education.",
+        },
+        {
+          question: "When should I apply?",
+          answer: "Notices are often sent home around the start of the new school year. Mid-year applications may be accepted, but the start of benefits varies by municipality.",
+        },
+        {
+          question: "Is school lunch the only thing covered?",
+          answer: "No. Depending on the municipality, school supplies, field trips, and entrance preparation funds may also be covered.",
+        },
+        {
+          question: "What if my school hasn't given me any information?",
+          answer: "Ask the school office or your child's teacher for the application form. You can also enquire at your city/town hall or Board of Education.",
+        },
+        {
+          question: "Does the assistance differ by municipality?",
+          answer: "Yes. Income thresholds, covered items, application periods, and required documents all vary — always check your local municipality for the latest information.",
+        },
+      ],
     },
   },
   {
@@ -930,6 +956,32 @@ const LOCALIZED: Partial<Record<Lang, Record<string, ArticleOverride>>> = {
         s6: "• Đơn xin hỗ trợ học tập (就学援助申請書)\n• Thẻ cư trú (在留カード)\n• Giấy tờ thu nhập (hoặc đồng ý cho Sở GD xác minh)\n• Thông tin tài khoản ngân hàng",
         s7: "• Không biết chế độ này tồn tại — trường phát thông báo nhưng thường chỉ bằng tiếng Nhật.\n• Nghĩ rằng chỉ dành cho người Nhật — tất cả cư dân đều có thể đăng ký.\n• Quên gia hạn vào tháng 9 — kỳ công nhận là từ tháng 9 đến tháng 8.\n• Nộp đơn muộn — hỗ trợ bắt đầu từ tháng nộp đơn, không hồi tố.",
         s10: "Sở Giáo dục Nagoya, Phòng Học vụ: 052-972-3217\nTrung tâm Quốc tế Nagoya: 052-581-0100",
+        faq: [
+          {
+            question: "Người nước ngoài có thể đăng ký hỗ trợ học phí không?",
+            answer: "Có. Ở hầu hết các địa phương, bất kỳ ai có đăng ký cư trú và đáp ứng điều kiện thu nhập đều có thể đăng ký, bất kể quốc tịch.",
+          },
+          {
+            question: "Có cần thẻ cư trú không?",
+            answer: "Thường là có. Hồ sơ cần thiết tùy theo từng địa phương — hãy hỏi trường của con bạn hoặc Sở Giáo dục.",
+          },
+          {
+            question: "Nên đăng ký khi nào?",
+            answer: "Thông báo thường được phát vào đầu năm học. Một số nơi chấp nhận đăng ký giữa năm, nhưng thời điểm bắt đầu nhận hỗ trợ tùy theo từng địa phương.",
+          },
+          {
+            question: "Có được hỗ trợ ngoài tiền ăn trưa không?",
+            answer: "Có. Tùy theo địa phương, có thể được hỗ trợ thêm dụng cụ học tập, dã ngoại và tiền chuẩn bị nhập học.",
+          },
+          {
+            question: "Nếu trường không cung cấp thông tin thì phải làm gì?",
+            answer: "Hãy hỏi phòng hành chính hoặc giáo viên chủ nhiệm về đơn đăng ký. Bạn cũng có thể hỏi tại tòa thị chính hoặc Sở Giáo dục.",
+          },
+          {
+            question: "Có sự khác biệt giữa các địa phương không?",
+            answer: "Có. Tiêu chuẩn thu nhập, các khoản được hỗ trợ, thời hạn đăng ký và hồ sơ cần thiết đều khác nhau — hãy luôn kiểm tra thông tin mới nhất từ địa phương bạn.",
+          },
+        ],
       },
     },
     "hoiku-mushouka": {
@@ -1171,6 +1223,32 @@ const LOCALIZED: Partial<Record<Lang, Record<string, ArticleOverride>>> = {
         s6: "• Application form (就学援助申請書)\n• Residence card (在留カード)\n• Proof of income (o pahintulot na i-check ng Board of Education)\n• Bank account info",
         s7: "• Hindi alam na may ganitong sistema — ang school ay nagbibigay ng notice pero madalas Japanese lang.\n• Inaakala na para lang sa mga Hapones — lahat ng residente ay kwalipikado.\n• Nakalimutan ang September renewal — ang certification period ay Sept hanggang Aug.\n• Late na nag-apply — ang tulong ay nagsisimula sa buwan ng application, hindi retroactive.",
         s10: "Nagoya Board of Education Student Affairs: 052-972-3217\nNagoya International Center: 052-581-0100",
+        faq: [
+          {
+            question: "Puwede bang mag-apply ang mga dayuhan?",
+            answer: "Oo. Sa karamihang munisipalidad, ang sinumang may resident registration at nakakatugon sa income requirements ay maaaring mag-apply, anumang nasyonalidad.",
+          },
+          {
+            question: "Kailangan ba ng residence card?",
+            answer: "Kadalasan, oo. Mag-iiba ang kinakailangang dokumento depende sa munisipalidad — tanungin ang school o Board of Education.",
+          },
+          {
+            question: "Kailan dapat mag-apply?",
+            answer: "Karaniwang may notice sa simula ng school year. May mga lugar na tumatanggap ng mid-year applications, pero mag-iiba ang simula ng benepisyo.",
+          },
+          {
+            question: "School lunch lang ba ang sakop?",
+            answer: "Hindi. Depende sa munisipalidad, maaari ring sakupin ang school supplies, field trips, at entrance preparation funds.",
+          },
+          {
+            question: "Paano kung walang ibinigay na impormasyon ang school?",
+            answer: "Humingi ng application form sa school office o guro ng iyong anak. Maaari mo ring itanong sa munisipalidad o Board of Education.",
+          },
+          {
+            question: "Magkaiba ba ang benepisyo sa bawat lugar?",
+            answer: "Oo. Ang income threshold, sakop na gastos, panahon ng application, at kinakailangang dokumento ay magkakaiba — laging i-check ang pinakabagong impormasyon sa iyong munisipalidad.",
+          },
+        ],
       },
     },
     "hoiku-mushouka": {
