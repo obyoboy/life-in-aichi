@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { existsSync } from "fs";
+import { join } from "path";
 import type { Lang } from "@/lib/i18n";
 import { LANGUAGES } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
@@ -7,6 +9,7 @@ import { getArticleById, getArticles, CATEGORIES, CAT_COLORS, CTA_MAP } from "@/
 import { LineCTA } from "@/components/LineCTA";
 import { ArticleCard } from "@/components/ArticleCard";
 import { TableOfContents } from "@/components/TableOfContents";
+import { ArticleHeroImage } from "@/components/ArticleHeroImage";
 import type { Metadata } from "next";
 import { buildLanguageAlternates, getSiteUrl } from "@/lib/seo";
 import { assertArticleDataIntegrity } from "@/lib/articleDataValidation";
@@ -168,6 +171,15 @@ export default async function ArticlePage({
 
   const typedLang = lang as Lang;
   const base = getSiteUrl().origin;
+  const hasHeroImage = existsSync(
+    join(process.cwd(), "public", "images", "articles", `${id}.png`)
+  );
+  const heroAltByLang: Record<Lang, string> = {
+    en: `Illustration for: ${article.title}`,
+    vi: `Hình minh họa: ${article.title}`,
+    tl: `Ilustrasyon para sa: ${article.title}`,
+    ja: `${article.title}のイラスト`,
+  };
   const intro = s.intro;
   const contentSections = (s.contentSections || []).filter((section) => section.h2.trim());
   const hasStructuredContent = contentSections.length > 0;
@@ -249,6 +261,9 @@ export default async function ArticlePage({
             <span aria-hidden="true">{catObj?.icon}</span> {catLabel(article.cat)}
           </span>
           <h1>{article.title}</h1>
+          {hasHeroImage && (
+            <ArticleHeroImage slug={id} alt={heroAltByLang[typedLang]} />
+          )}
           <div className="article-meta">
             <span>
               {t.regionLabel}: {article.region}

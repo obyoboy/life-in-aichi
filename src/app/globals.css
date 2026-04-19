@@ -427,6 +427,20 @@ a:focus-visible {
 .article-meta { display: flex; gap: 16px; font-size: 13px; color: var(--text-light); flex-wrap: wrap; }
 .verified-date { color: var(--cat-medical); font-weight: 500; }
 
+/* ─── Article Hero Image ─── */
+.article-hero-image {
+  margin: 16px 0 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.article-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* ─── Intro Box ─── */
 .intro-box {
   background: #f0f7ff;
