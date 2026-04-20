@@ -34,3 +34,5 @@ next-env.d.ts
 
 # 画像生成プロンプト（作業用）
 prompts/
+
+.vercel
