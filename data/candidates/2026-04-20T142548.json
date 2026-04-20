@@ -1,0 +1,43 @@
+{
+  "crawl_date": "2026-04-20",
+  "crawl_time": "2026-04-20T14:25:48.133246",
+  "tier": "daily",
+  "sources_total": 60,
+  "sources_crawled": 60,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [],
+  "updated": [
+    {
+      "url": "https://www.city.ama.aichi.jp/",
+      "source": "あま市",
+      "source_id": "ama",
+      "category": "",
+      "status": "updated",
+      "title": "あま市公式ウェブサイト｜ともに想い　ともに創る　ずっと大好きなまち　あま",
+      "detected_keywords": [
+        "給付",
+        "支援"
+      ],
+      "content_hash": "38cf5caeebdb9610",
+      "previous_hash": "54b49f2823c53a2a",
+      "diff_summary": "Content changed since 2026-04-20"
+    },
+    {
+      "url": "https://www.city.toyota.aichi.jp/",
+      "source": "豊田市",
+      "source_id": "toyota",
+      "category": "",
+      "status": "updated",
+      "title": "豊田市公式ホームページ",
+      "detected_keywords": [
+        "補助",
+        "支援",
+        "免除"
+      ],
+      "content_hash": "60e08f087b8f3d3c",
+      "previous_hash": "87095775675f8ce5",
+      "diff_summary": "Content changed since 2026-04-20"
+    }
+  ]
+}
