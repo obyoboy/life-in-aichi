@@ -1,0 +1,136 @@
+{
+  "crawl_date": "2026-05-03",
+  "crawl_time": "2026-05-03T13:37:47.748726",
+  "tier": "daily",
+  "sources_total": 60,
+  "sources_crawled": 60,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [],
+  "updated": [
+    {
+      "url": "https://www.city.nagoya.jp/",
+      "source": "名古屋市",
+      "source_id": "nagoya",
+      "category": "",
+      "status": "updated",
+      "title": "名古屋市公式ウェブサイト",
+      "detected_keywords": [
+        "給付",
+        "助成",
+        "手当",
+        "支援"
+      ],
+      "content_hash": "e337cee3f82ab731",
+      "previous_hash": "d3cf400d9dff80ce",
+      "diff_summary": "Content changed since 2026-05-02"
+    },
+    {
+      "url": "https://www.city.kasugai.lg.jp/",
+      "source": "春日井市",
+      "source_id": "kasugai",
+      "category": "",
+      "status": "updated",
+      "title": "春日井市公式ホームページ",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "eba9b40e84878371",
+      "previous_hash": "446a2e225662fe47",
+      "diff_summary": "Content changed since 2026-05-02"
+    },
+    {
+      "url": "https://www.town.fuso.lg.jp/",
+      "source": "扶桑町",
+      "source_id": "fuso",
+      "category": "",
+      "status": "updated",
+      "title": "扶桑町公式ホームページ",
+      "detected_keywords": [
+        "助成",
+        "補助",
+        "支援",
+        "免除"
+      ],
+      "content_hash": "5546664ac72bcb8d",
+      "previous_hash": "e520f0b79af68214",
+      "diff_summary": "Content changed since 2026-05-02"
+    },
+    {
+      "url": "https://www.city.tsushima.lg.jp/",
+      "source": "津島市",
+      "source_id": "tsushima",
+      "category": "",
+      "status": "updated",
+      "title": "津島市ホームページ",
+      "detected_keywords": [
+        "補助"
+      ],
+      "content_hash": "0e2ff0570e157ecf",
+      "previous_hash": "759de58f1dc25b42",
+      "diff_summary": "Content changed since 2026-05-02"
+    },
+    {
+      "url": "https://www.city.aisai.lg.jp/",
+      "source": "愛西市",
+      "source_id": "aisai",
+      "category": "",
+      "status": "updated",
+      "title": "愛西市",
+      "detected_keywords": [
+        "補助",
+        "支援",
+        "免除"
+      ],
+      "content_hash": "a34115f5bbe5e52c",
+      "previous_hash": "9e26148425ba7321",
+      "diff_summary": "Content changed since 2026-05-02"
+    },
+    {
+      "url": "https://www.city.obu.aichi.jp/",
+      "source": "大府市",
+      "source_id": "obu",
+      "category": "",
+      "status": "updated",
+      "title": "大府市公式ウェブサイト",
+      "detected_keywords": [
+        "助成",
+        "補助",
+        "免除"
+      ],
+      "content_hash": "fe0a803557d6b18f",
+      "previous_hash": "f10142526279f170",
+      "diff_summary": "Content changed since 2026-05-02"
+    },
+    {
+      "url": "https://www.city.anjo.aichi.jp/",
+      "source": "安城市",
+      "source_id": "anjo",
+      "category": "",
+      "status": "updated",
+      "title": "安城市／ホーム",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "50a59e7863904f87",
+      "previous_hash": "9cbb34615b1e4590",
+      "diff_summary": "Content changed since 2026-05-02"
+    },
+    {
+      "url": "https://www.town.toei.aichi.jp/",
+      "source": "東栄町",
+      "source_id": "toei",
+      "category": "",
+      "status": "updated",
+      "title": "ホーム/東栄町",
+      "detected_keywords": [
+        "補助",
+        "支援",
+        "foreign"
+      ],
+      "content_hash": "1c8fd2895aa61db7",
+      "previous_hash": "9370c9199ca6464b",
+      "diff_summary": "Content changed since 2026-05-02"
+    }
+  ]
+}
