@@ -1,0 +1,181 @@
+{
+  "crawl_date": "2026-05-04",
+  "crawl_time": "2026-05-04T13:37:26.012697",
+  "tier": "daily",
+  "sources_total": 60,
+  "sources_crawled": 60,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [],
+  "updated": [
+    {
+      "url": "https://www.city.nagoya.jp/",
+      "source": "名古屋市",
+      "source_id": "nagoya",
+      "category": "",
+      "status": "updated",
+      "title": "名古屋市公式ウェブサイト",
+      "detected_keywords": [
+        "給付",
+        "助成",
+        "手当",
+        "支援"
+      ],
+      "content_hash": "1fb3a698a3828b9d",
+      "previous_hash": "e337cee3f82ab731",
+      "diff_summary": "Content changed since 2026-05-03"
+    },
+    {
+      "url": "https://www.city.ichinomiya.aichi.jp/",
+      "source": "一宮市",
+      "source_id": "ichinomiya",
+      "category": "",
+      "status": "updated",
+      "title": "一宮市",
+      "detected_keywords": [
+        "手当",
+        "支援"
+      ],
+      "content_hash": "6ccad11ab5e87b32",
+      "previous_hash": "c711aff8ddf950fe",
+      "diff_summary": "Content changed since 2026-05-03"
+    },
+    {
+      "url": "https://www.city.seto.aichi.jp/",
+      "source": "瀬戸市",
+      "source_id": "seto",
+      "category": "",
+      "status": "updated",
+      "title": "瀬戸市",
+      "detected_keywords": [
+        "手当",
+        "支援"
+      ],
+      "content_hash": "7a0d7fa5c60fad1a",
+      "previous_hash": "a0a00fb9f4eea5e8",
+      "diff_summary": "Content changed since 2026-05-03"
+    },
+    {
+      "url": "https://www.city.konan.lg.jp/",
+      "source": "江南市",
+      "source_id": "konan",
+      "category": "",
+      "status": "updated",
+      "title": "江南市公式ホームページ",
+      "detected_keywords": [
+        "補助",
+        "支援"
+      ],
+      "content_hash": "6c4f6d74a3b9b6f7",
+      "previous_hash": "bc821bdd2a414924",
+      "diff_summary": "Content changed since 2026-05-03"
+    },
+    {
+      "url": "https://www.town.fuso.lg.jp/",
+      "source": "扶桑町",
+      "source_id": "fuso",
+      "category": "",
+      "status": "updated",
+      "title": "扶桑町公式ホームページ",
+      "detected_keywords": [
+        "助成",
+        "補助",
+        "支援",
+        "免除"
+      ],
+      "content_hash": "aef147714bed3474",
+      "previous_hash": "5546664ac72bcb8d",
+      "diff_summary": "Content changed since 2026-05-03"
+    },
+    {
+      "url": "https://www.city.tokai.aichi.jp/",
+      "source": "東海市",
+      "source_id": "tokai",
+      "category": "",
+      "status": "updated",
+      "title": "東海市公式ウェブサイト",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "6a29ef7b7ea82cda",
+      "previous_hash": "8696076481b32bdc",
+      "diff_summary": "Content changed since 2026-05-03"
+    },
+    {
+      "url": "https://www.city.obu.aichi.jp/",
+      "source": "大府市",
+      "source_id": "obu",
+      "category": "",
+      "status": "updated",
+      "title": "大府市公式ウェブサイト",
+      "detected_keywords": [
+        "助成",
+        "補助",
+        "免除"
+      ],
+      "content_hash": "6e3083166bec6f7d",
+      "previous_hash": "fe0a803557d6b18f",
+      "diff_summary": "Content changed since 2026-05-03"
+    },
+    {
+      "url": "https://www.town.agui.lg.jp/",
+      "source": "阿久比町",
+      "source_id": "agui",
+      "category": "",
+      "status": "updated",
+      "title": "阿久比町",
+      "detected_keywords": [
+        "補助"
+      ],
+      "content_hash": "4444ae9706f7a7d5",
+      "previous_hash": "b9b694db955b4b31",
+      "diff_summary": "Content changed since 2026-05-03"
+    },
+    {
+      "url": "https://www.town.taketoyo.lg.jp/",
+      "source": "武豊町",
+      "source_id": "taketoyo",
+      "category": "",
+      "status": "updated",
+      "title": "武豊町公式ホームページ",
+      "detected_keywords": [
+        "助成",
+        "手当",
+        "補助",
+        "支援",
+        "減免"
+      ],
+      "content_hash": "5c3c1227da8195e3",
+      "previous_hash": "99733dfeef058373",
+      "diff_summary": "Content changed since 2026-05-03"
+    },
+    {
+      "url": "https://www.city.okazaki.lg.jp/",
+      "source": "岡崎市",
+      "source_id": "okazaki",
+      "category": "",
+      "status": "updated",
+      "title": "岡崎市公式ホームページ",
+      "detected_keywords": [
+        "補助"
+      ],
+      "content_hash": "0fb6ff46a0c45edc",
+      "previous_hash": "9979db2cd38938ac",
+      "diff_summary": "Content changed since 2026-05-03"
+    },
+    {
+      "url": "https://www.city.anjo.aichi.jp/",
+      "source": "安城市",
+      "source_id": "anjo",
+      "category": "",
+      "status": "updated",
+      "title": "安城市／ホーム",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "904e87625e868fe0",
+      "previous_hash": "50a59e7863904f87",
+      "diff_summary": "Content changed since 2026-05-03"
+    }
+  ]
+}
