@@ -1,0 +1,43 @@
+{
+  "crawl_date": "2026-05-05",
+  "crawl_time": "2026-05-05T13:14:03.440371",
+  "tier": "daily",
+  "sources_total": 60,
+  "sources_crawled": 60,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [],
+  "updated": [
+    {
+      "url": "https://www.city.seto.aichi.jp/",
+      "source": "瀬戸市",
+      "source_id": "seto",
+      "category": "",
+      "status": "updated",
+      "title": "瀬戸市",
+      "detected_keywords": [
+        "手当",
+        "支援"
+      ],
+      "content_hash": "0c7bc90113ce973f",
+      "previous_hash": "7a0d7fa5c60fad1a",
+      "diff_summary": "Content changed since 2026-05-04"
+    },
+    {
+      "url": "https://www.city.obu.aichi.jp/",
+      "source": "大府市",
+      "source_id": "obu",
+      "category": "",
+      "status": "updated",
+      "title": "大府市公式ウェブサイト",
+      "detected_keywords": [
+        "助成",
+        "補助",
+        "免除"
+      ],
+      "content_hash": "898d518e1158946a",
+      "previous_hash": "6e3083166bec6f7d",
+      "diff_summary": "Content changed since 2026-05-04"
+    }
+  ]
+}
