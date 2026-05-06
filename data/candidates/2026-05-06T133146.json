@@ -1,0 +1,87 @@
+{
+  "crawl_date": "2026-05-06",
+  "crawl_time": "2026-05-06T13:31:46.690888",
+  "tier": "daily",
+  "sources_total": 60,
+  "sources_crawled": 60,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [],
+  "updated": [
+    {
+      "url": "https://www.city.ichinomiya.aichi.jp/",
+      "source": "一宮市",
+      "source_id": "ichinomiya",
+      "category": "",
+      "status": "updated",
+      "title": "一宮市",
+      "detected_keywords": [
+        "手当",
+        "支援"
+      ],
+      "content_hash": "dc984995fa93130f",
+      "previous_hash": "6ccad11ab5e87b32",
+      "diff_summary": "Content changed since 2026-05-05"
+    },
+    {
+      "url": "https://www.city.seto.aichi.jp/",
+      "source": "瀬戸市",
+      "source_id": "seto",
+      "category": "",
+      "status": "updated",
+      "title": "瀬戸市",
+      "detected_keywords": [
+        "手当",
+        "支援"
+      ],
+      "content_hash": "bd33a1790c92293c",
+      "previous_hash": "0c7bc90113ce973f",
+      "diff_summary": "Content changed since 2026-05-05"
+    },
+    {
+      "url": "https://www.city.kasugai.lg.jp/",
+      "source": "春日井市",
+      "source_id": "kasugai",
+      "category": "",
+      "status": "updated",
+      "title": "春日井市公式ホームページ",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "042d48d27d54d47c",
+      "previous_hash": "eba9b40e84878371",
+      "diff_summary": "Content changed since 2026-05-05"
+    },
+    {
+      "url": "https://www.city.tokoname.aichi.jp/",
+      "source": "常滑市",
+      "source_id": "tokoname",
+      "category": "",
+      "status": "updated",
+      "title": "常滑市",
+      "detected_keywords": [
+        "補助",
+        "支援"
+      ],
+      "content_hash": "dbcc89d16de0ef8d",
+      "previous_hash": "4eea12cd5ebb61f3",
+      "diff_summary": "Content changed since 2026-05-05"
+    },
+    {
+      "url": "https://www.city.obu.aichi.jp/",
+      "source": "大府市",
+      "source_id": "obu",
+      "category": "",
+      "status": "updated",
+      "title": "大府市公式ウェブサイト",
+      "detected_keywords": [
+        "助成",
+        "補助",
+        "免除"
+      ],
+      "content_hash": "970c0503d346a163",
+      "previous_hash": "898d518e1158946a",
+      "diff_summary": "Content changed since 2026-05-05"
+    }
+  ]
+}
