@@ -1,0 +1,95 @@
+{
+  "crawl_date": "2026-05-10",
+  "crawl_time": "2026-05-10T14:05:47.169328",
+  "tier": "weekly",
+  "sources_total": 10,
+  "sources_crawled": 10,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [],
+  "updated": [
+    {
+      "url": "https://www.city.nagoya.jp/index.html",
+      "source": "名古屋市",
+      "source_id": "nagoya",
+      "category": "",
+      "status": "updated",
+      "title": "名古屋市公式ウェブサイト",
+      "detected_keywords": [
+        "給付",
+        "助成",
+        "手当",
+        "支援"
+      ],
+      "content_hash": "c08f8bb0fd0ae6c4",
+      "previous_hash": "e337cee3f82ab731",
+      "diff_summary": "Content changed since 2026-05-03"
+    },
+    {
+      "url": "https://www.city.okazaki.lg.jp/index.html",
+      "source": "岡崎市",
+      "source_id": "okazaki",
+      "category": "",
+      "status": "updated",
+      "title": "岡崎市公式ホームページ",
+      "detected_keywords": [
+        "補助"
+      ],
+      "content_hash": "a57d4e228d7315d3",
+      "previous_hash": "9979db2cd38938ac",
+      "diff_summary": "Content changed since 2026-05-03"
+    },
+    {
+      "url": "https://www.city.toyohashi.lg.jp/item/122001.htm",
+      "source": "豊橋市",
+      "source_id": "toyohashi",
+      "category": "",
+      "status": "updated",
+      "title": "本市の物価高騰対策/豊橋市",
+      "detected_keywords": [
+        "助成",
+        "補助",
+        "支援",
+        "免除",
+        "support"
+      ],
+      "content_hash": "440079c621fab5d5",
+      "previous_hash": "e1c8939a1c2a6843",
+      "diff_summary": "Content changed since 2026-05-03"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "医療保険 ｜厚生労働省",
+      "detected_keywords": [
+        "助成",
+        "手当",
+        "一時金",
+        "外国人"
+      ],
+      "content_hash": "7ad0bdabf6fd10bd",
+      "previous_hash": "85f024f1f343cbb9",
+      "diff_summary": "Content changed since 2026-05-03"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/index.html",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "医療保険 ｜厚生労働省",
+      "detected_keywords": [
+        "助成",
+        "手当",
+        "一時金",
+        "外国人"
+      ],
+      "content_hash": "7ad0bdabf6fd10bd",
+      "previous_hash": "85f024f1f343cbb9",
+      "diff_summary": "Content changed since 2026-05-03"
+    }
+  ]
+}
