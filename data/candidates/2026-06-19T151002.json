@@ -1,6 +1,6 @@
 {
-  "crawl_date": "2026-05-19",
-  "crawl_time": "2026-05-19T13:55:17.382830",
+  "crawl_date": "2026-06-19",
+  "crawl_time": "2026-06-19T15:10:02.585361",
   "tier": "daily",
   "sources_total": 60,
   "sources_crawled": 60,
@@ -21,9 +21,9 @@
         "手当",
         "支援"
       ],
-      "content_hash": "63361e30c0bdfead",
-      "previous_hash": "dcea9d9fad05e5fd",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "d941771bb5e2ee90",
+      "previous_hash": "6eecb314cfa23e6c",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.ichinomiya.aichi.jp/",
@@ -35,51 +35,9 @@
       "detected_keywords": [
         "支援"
       ],
-      "content_hash": "13f343d71fa5db1e",
-      "previous_hash": "878e07b9ae620bb6",
-      "diff_summary": "Content changed since 2026-05-18"
-    },
-    {
-      "url": "https://www.city.seto.aichi.jp/",
-      "source": "瀬戸市",
-      "source_id": "seto",
-      "category": "",
-      "status": "updated",
-      "title": "瀬戸市",
-      "detected_keywords": [
-        "支援"
-      ],
-      "content_hash": "e8139008bdb1936c",
-      "previous_hash": "0cfdb96348aa8bc8",
-      "diff_summary": "Content changed since 2026-05-18"
-    },
-    {
-      "url": "https://www.city.kasugai.lg.jp/",
-      "source": "春日井市",
-      "source_id": "kasugai",
-      "category": "",
-      "status": "updated",
-      "title": "春日井市公式ホームページ",
-      "detected_keywords": [
-        "支援"
-      ],
-      "content_hash": "0eaeedec8c920d19",
-      "previous_hash": "ed02b442fb576726",
-      "diff_summary": "Content changed since 2026-05-18"
-    },
-    {
-      "url": "https://www.city.inuyama.aichi.jp/",
-      "source": "犬山市",
-      "source_id": "inuyama",
-      "category": "",
-      "status": "updated",
-      "title": "犬山市",
-      "detected_keywords": [
-        "支援"
-      ],
-      "content_hash": "328efbb3590900d8",
-      "previous_hash": "54197a2886fb6187",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "b25909980d772e65",
+      "previous_hash": "8d73fc3565003c50",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.inazawa.aichi.jp/",
@@ -92,9 +50,9 @@
         "補助",
         "支援"
       ],
-      "content_hash": "b107c3b2f358b74f",
-      "previous_hash": "d04e79b113129f5a",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "92264d4d451b160d",
+      "previous_hash": "b7e6e28151d3e8a6",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.toyoake.lg.jp/",
@@ -108,9 +66,9 @@
         "支援",
         "foreign"
       ],
-      "content_hash": "b5a98170d79320f4",
-      "previous_hash": "8648814b1cba81be",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "2c882a818ce01ebd",
+      "previous_hash": "77d9de83f91e1919",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.kiyosu.aichi.jp/",
@@ -120,12 +78,25 @@
       "status": "updated",
       "title": "清須市ホームページ",
       "detected_keywords": [
-        "支援",
-        "在留"
+        "支援"
       ],
-      "content_hash": "20eae91d0a7fc8bd",
-      "previous_hash": "f4dee7e83b61a0c3",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "8d0cd0c6813dbe01",
+      "previous_hash": "b6caafafddd48753",
+      "diff_summary": "Content changed since 2026-06-18"
+    },
+    {
+      "url": "https://www.city.kitanagoya.lg.jp/",
+      "source": "北名古屋市",
+      "source_id": "kitanagoya",
+      "category": "",
+      "status": "updated",
+      "title": "北名古屋市公式ウェブサイト",
+      "detected_keywords": [
+        "補助"
+      ],
+      "content_hash": "3bb298fed857c0f6",
+      "previous_hash": "c365f8771389f4f7",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.town.aichi-togo.lg.jp/",
@@ -138,26 +109,40 @@
         "補助",
         "支援"
       ],
-      "content_hash": "6c38ecfa72f99528",
-      "previous_hash": "e7996bf3547b1201",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "34883a4b95b72d71",
+      "previous_hash": "b8a055231c53f0da",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
-      "url": "https://www.town.oguchi.lg.jp/",
-      "source": "大口町",
-      "source_id": "oguchi",
+      "url": "https://www.town.toyoyama.lg.jp/",
+      "source": "豊山町",
+      "source_id": "toyoyama",
       "category": "",
       "status": "updated",
-      "title": "ホーム/大口町",
+      "title": "豊山町公式ウェブサイト",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "a44f93d0377e7710",
+      "previous_hash": "7234431ac011fad8",
+      "diff_summary": "Content changed since 2026-06-18"
+    },
+    {
+      "url": "https://www.town.fuso.lg.jp/",
+      "source": "扶桑町",
+      "source_id": "fuso",
+      "category": "",
+      "status": "updated",
+      "title": "扶桑町公式ホームページ",
       "detected_keywords": [
         "助成",
+        "補助",
         "支援",
-        "外国人",
-        "住民登録"
+        "免除"
       ],
-      "content_hash": "6080aa8ac4c8f02f",
-      "previous_hash": "8f1fdd2e53a87775",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "b127ebc7efb6872f",
+      "previous_hash": "395acb3835783bf2",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.tsushima.lg.jp/",
@@ -167,26 +152,27 @@
       "status": "updated",
       "title": "津島市ホームページ",
       "detected_keywords": [
+        "手当",
         "補助"
       ],
-      "content_hash": "0a3bea5d552b8648",
-      "previous_hash": "5b789566a66a3575",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "c836ad5c72975e53",
+      "previous_hash": "f70faff5807f7716",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
-      "url": "https://www.city.yatomi.lg.jp/",
-      "source": "弥富市",
-      "source_id": "yatomi",
+      "url": "https://www.city.aisai.lg.jp/",
+      "source": "愛西市",
+      "source_id": "aisai",
       "category": "",
       "status": "updated",
-      "title": "弥富市公式ホームページ",
+      "title": "愛西市",
       "detected_keywords": [
         "補助",
         "支援"
       ],
-      "content_hash": "ce1a415fffe8110b",
-      "previous_hash": "7a4cb2d55819f663",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "cb5f087bbc18c58a",
+      "previous_hash": "22b811e75eee5f2c",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.town.oharu.aichi.jp/",
@@ -200,9 +186,9 @@
         "補助",
         "支援"
       ],
-      "content_hash": "8e4712e0dcb4ce4a",
-      "previous_hash": "9c66fd524a9b78b4",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "c947b8bd7e36f171",
+      "previous_hash": "a08570798798a14a",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.town.kanie.aichi.jp/",
@@ -215,9 +201,9 @@
         "補助",
         "支援"
       ],
-      "content_hash": "a7100375b6ccf5e4",
-      "previous_hash": "daa2d37f03f96370",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "ecbadb5e3011c657",
+      "previous_hash": "4e06add13d98df48",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.handa.lg.jp/",
@@ -227,12 +213,11 @@
       "status": "updated",
       "title": "半田市公式ウェブサイト",
       "detected_keywords": [
-        "給付",
-        "支援"
+        "給付"
       ],
-      "content_hash": "e6141a37df1a14df",
-      "previous_hash": "a9e5e9c629d529ad",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "3d57b6be0e5d7874",
+      "previous_hash": "f2123ed9e8d0066d",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.tokoname.aichi.jp/",
@@ -242,12 +227,12 @@
       "status": "updated",
       "title": "常滑市",
       "detected_keywords": [
-        "補助",
-        "支援"
+        "給付",
+        "補助"
       ],
-      "content_hash": "fefdbfc75fd3f22e",
-      "previous_hash": "921829f24b388c5f",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "64f75a4174d6db2a",
+      "previous_hash": "035ff9c0452c9c51",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.tokai.aichi.jp/",
@@ -259,9 +244,9 @@
       "detected_keywords": [
         "支援"
       ],
-      "content_hash": "47135e36ebc8843f",
-      "previous_hash": "a2f443e70808478b",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "0d6c082e4c6b850a",
+      "previous_hash": "4ebad337f91535e8",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.obu.aichi.jp/",
@@ -273,12 +258,11 @@
       "detected_keywords": [
         "助成",
         "補助",
-        "免除",
         "多文化"
       ],
-      "content_hash": "ae948e4a94ecbe2d",
-      "previous_hash": "79af9c47d79049eb",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "0c34eae890854368",
+      "previous_hash": "27030e20c69be3f1",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.chita.lg.jp/",
@@ -288,11 +272,12 @@
       "status": "updated",
       "title": "知多市",
       "detected_keywords": [
+        "助成",
         "補助"
       ],
-      "content_hash": "3ffd73d5df227a21",
-      "previous_hash": "4a88694e4bce4b0e",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "7a1fc9e0b720ebde",
+      "previous_hash": "2ed97de497937f2d",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.town.agui.lg.jp/",
@@ -304,23 +289,9 @@
       "detected_keywords": [
         "補助"
       ],
-      "content_hash": "c4ca73210b37e399",
-      "previous_hash": "8132aec19c1adc36",
-      "diff_summary": "Content changed since 2026-05-18"
-    },
-    {
-      "url": "https://www.town.minamichita.lg.jp/",
-      "source": "南知多町",
-      "source_id": "minamichita",
-      "category": "",
-      "status": "updated",
-      "title": "南知多町公式ウェブサイト",
-      "detected_keywords": [
-        "支援"
-      ],
-      "content_hash": "c1f7533cab70fe9b",
-      "previous_hash": "01d5c9b92dff9a9a",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "994c6d684c0184e6",
+      "previous_hash": "66a6ff1330182b78",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.town.taketoyo.lg.jp/",
@@ -330,13 +301,15 @@
       "status": "updated",
       "title": "武豊町公式ホームページ",
       "detected_keywords": [
+        "給付",
         "助成",
         "手当",
-        "補助"
+        "補助",
+        "支援"
       ],
-      "content_hash": "6f16fb01d3049cc6",
-      "previous_hash": "fde279e27e38c37f",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "6465086525f41276",
+      "previous_hash": "c79084363181c17a",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.okazaki.lg.jp/",
@@ -348,23 +321,9 @@
       "detected_keywords": [
         "補助"
       ],
-      "content_hash": "9062bcc052dd3657",
-      "previous_hash": "74e23be00402de7e",
-      "diff_summary": "Content changed since 2026-05-18"
-    },
-    {
-      "url": "https://www.city.hekinan.lg.jp/",
-      "source": "碧南市",
-      "source_id": "hekinan",
-      "category": "",
-      "status": "updated",
-      "title": "ホーム／碧南市",
-      "detected_keywords": [
-        "支援"
-      ],
-      "content_hash": "f0e68987357e5ead",
-      "previous_hash": "0d361c47ec5fbd73",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "44d01e64d0325c67",
+      "previous_hash": "90c09aea1e5c0ea8",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.kariya.lg.jp/",
@@ -376,9 +335,24 @@
       "detected_keywords": [
         "支援"
       ],
-      "content_hash": "869a104cee4d37a3",
-      "previous_hash": "f8dae8b64b944a06",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "d8d9ca90b21db815",
+      "previous_hash": "4de7997aca2b7f2e",
+      "diff_summary": "Content changed since 2026-06-18"
+    },
+    {
+      "url": "https://www.city.toyota.aichi.jp/",
+      "source": "豊田市",
+      "source_id": "toyota",
+      "category": "",
+      "status": "updated",
+      "title": "豊田市公式ホームページ",
+      "detected_keywords": [
+        "補助",
+        "支援"
+      ],
+      "content_hash": "d39e261a848cd492",
+      "previous_hash": "4dba688159b45608",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.nishio.aichi.jp/",
@@ -388,11 +362,12 @@
       "status": "updated",
       "title": "西尾市公式ウェブサイト",
       "detected_keywords": [
+        "給付",
         "支援"
       ],
-      "content_hash": "ae3e93f78b0e33e5",
-      "previous_hash": "9d73c03f63329fed",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "33f0301e1e938854",
+      "previous_hash": "56dc1b7dccc43120",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.takahama.lg.jp/",
@@ -405,9 +380,9 @@
         "外国人",
         "foreign"
       ],
-      "content_hash": "6f19ef1ea3dd759a",
-      "previous_hash": "cbafc36b5a3a1f78",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "e76bea1d6dcfade1",
+      "previous_hash": "fd7e99ad08ab5ad6",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.town.kota.lg.jp/",
@@ -417,13 +392,29 @@
       "status": "updated",
       "title": "幸田町公式ホームページ ホーム",
       "detected_keywords": [
-        "助成",
         "支援",
         "foreign"
       ],
-      "content_hash": "4ae53739fabb2b2c",
-      "previous_hash": "0a1aafb67553a070",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "137b6f26cff03e16",
+      "previous_hash": "daa2adc75f5a443c",
+      "diff_summary": "Content changed since 2026-06-18"
+    },
+    {
+      "url": "https://www.city.toyohashi.lg.jp/",
+      "source": "豊橋市",
+      "source_id": "toyohashi",
+      "category": "",
+      "status": "updated",
+      "title": "ホーム/豊橋市",
+      "detected_keywords": [
+        "補助",
+        "支援",
+        "support",
+        "foreign"
+      ],
+      "content_hash": "841f195fc7d38ed3",
+      "previous_hash": "d296142f5252145e",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.gamagori.lg.jp/",
@@ -436,9 +427,9 @@
         "補助",
         "foreign"
       ],
-      "content_hash": "b40b6c5ba1d39c4d",
-      "previous_hash": "30691a0ce4da4fcf",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "2c391177b9c1dd03",
+      "previous_hash": "4163d274cfa1d3ac",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.shinshiro.lg.jp/",
@@ -449,12 +440,11 @@
       "title": "新城市ホームページ",
       "detected_keywords": [
         "助成",
-        "補助",
-        "支援"
+        "補助"
       ],
-      "content_hash": "476860f4f2ebe4e6",
-      "previous_hash": "74d7f284e71cfeed",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "e9067ff16a6ca54a",
+      "previous_hash": "2dd97e6e9ecd6e05",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.city.tahara.aichi.jp/",
@@ -466,9 +456,9 @@
       "detected_keywords": [
         "支援"
       ],
-      "content_hash": "df12230afa50bede",
-      "previous_hash": "686109d349af498f",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "0b860da3457ff2e1",
+      "previous_hash": "ea7a2d498e9cf449",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
       "url": "https://www.town.shitara.lg.jp/",
@@ -484,26 +474,25 @@
         "外国人",
         "foreign"
       ],
-      "content_hash": "4322adc241388566",
-      "previous_hash": "59ca96d07494eb5f",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "69cc116bab12bd92",
+      "previous_hash": "9d192df8fcfdf507",
+      "diff_summary": "Content changed since 2026-06-18"
     },
     {
-      "url": "https://www.pref.aichi.jp/life/3/",
-      "source": "愛知県 健康・福祉",
-      "source_id": "aichi-pref-kenko",
+      "url": "https://www.town.toei.aichi.jp/",
+      "source": "東栄町",
+      "source_id": "toei",
       "category": "",
       "status": "updated",
-      "title": "健康・福祉 - 愛知県",
+      "title": "ホーム/東栄町",
       "detected_keywords": [
-        "給付",
-        "助成",
         "補助",
-        "支援"
+        "支援",
+        "foreign"
       ],
-      "content_hash": "c2daea87f3bba685",
-      "previous_hash": "c9407273cb15a595",
-      "diff_summary": "Content changed since 2026-05-18"
+      "content_hash": "ef45278ed4e478ce",
+      "previous_hash": "335033e973a14ad2",
+      "diff_summary": "Content changed since 2026-06-18"
     }
   ]
 }
