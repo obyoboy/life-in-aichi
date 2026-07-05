@@ -12,7 +12,7 @@
   "https://www.city.toyohashi.lg.jp/item/122001.htm": {
     "title": "本市の物価高騰対策/豊橋市",
     "hash": "dc6dff7aa4c47476",
-    "last_checked": "2026-06-28"
+    "last_checked": "2026-07-05"
   },
   "https://www.city.toyohashi.lg.jp/63957.htm": {
     "title": "2026年5月/豊橋市",
@@ -23,5 +23,10 @@
     "title": "2026年6月/豊橋市",
     "hash": "e39bfae1ec2e8a03",
     "last_checked": "2026-06-28"
+  },
+  "https://www.city.toyohashi.lg.jp/63955.htm": {
+    "title": "2026年7月/豊橋市",
+    "hash": "4b4653540051e03f",
+    "last_checked": "2026-07-05"
   }
 }
