@@ -1,0 +1,86 @@
+{
+  "crawl_date": "2026-07-05",
+  "crawl_time": "2026-07-05T13:52:16.533791",
+  "tier": "daily",
+  "sources_total": 60,
+  "sources_crawled": 60,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [],
+  "updated": [
+    {
+      "url": "https://www.city.konan.lg.jp/",
+      "source": "江南市",
+      "source_id": "konan",
+      "category": "",
+      "status": "updated",
+      "title": "江南市公式ホームページ",
+      "detected_keywords": [
+        "補助",
+        "支援"
+      ],
+      "content_hash": "6d47bffad90dbc92",
+      "previous_hash": "3e8c8d54ab2e7b6d",
+      "diff_summary": "Content changed since 2026-07-04"
+    },
+    {
+      "url": "https://www.town.kanie.aichi.jp/",
+      "source": "蟹江町",
+      "source_id": "kanie",
+      "category": "",
+      "status": "updated",
+      "title": "愛知県蟹江町公式ホームページ トップページ",
+      "detected_keywords": [
+        "補助",
+        "支援"
+      ],
+      "content_hash": "c7e1cf37c64ffd53",
+      "previous_hash": "f31f02b528d2638c",
+      "diff_summary": "Content changed since 2026-07-04"
+    },
+    {
+      "url": "https://www.city.obu.aichi.jp/",
+      "source": "大府市",
+      "source_id": "obu",
+      "category": "",
+      "status": "updated",
+      "title": "大府市公式ウェブサイト",
+      "detected_keywords": [
+        "助成",
+        "補助"
+      ],
+      "content_hash": "604dc3036765f9d5",
+      "previous_hash": "93d3ad4987c4429a",
+      "diff_summary": "Content changed since 2026-07-04"
+    },
+    {
+      "url": "https://www.city.okazaki.lg.jp/",
+      "source": "岡崎市",
+      "source_id": "okazaki",
+      "category": "",
+      "status": "updated",
+      "title": "岡崎市公式ホームページ",
+      "detected_keywords": [
+        "補助"
+      ],
+      "content_hash": "dc5409cc8793af35",
+      "previous_hash": "c7f6021a914cb7ae",
+      "diff_summary": "Content changed since 2026-07-04"
+    },
+    {
+      "url": "https://www.city.gamagori.lg.jp/",
+      "source": "蒲郡市",
+      "source_id": "gamagori",
+      "category": "",
+      "status": "updated",
+      "title": "愛知県蒲郡市公式ホームページ ホーム",
+      "detected_keywords": [
+        "補助",
+        "foreign"
+      ],
+      "content_hash": "2194518f634d7634",
+      "previous_hash": "41bff018b25597a1",
+      "diff_summary": "Content changed since 2026-07-04"
+    }
+  ]
+}
