@@ -1,0 +1,216 @@
+{
+  "crawl_date": "2026-07-19",
+  "crawl_time": "2026-07-19T13:48:06.500977",
+  "tier": "weekly",
+  "sources_total": 10,
+  "sources_crawled": 10,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [
+    {
+      "url": "https://www.city.toyohashi.lg.jp/item/125132.htm",
+      "source": "豊橋市",
+      "source_id": "toyohashi",
+      "category": "",
+      "status": "new",
+      "title": "漫画家 まえだ たかひろさんが市長を表敬訪問しました/豊橋市",
+      "detected_keywords": [
+        "補助",
+        "支援",
+        "外国籍",
+        "support"
+      ],
+      "content_hash": "e254615bf67fb2a0"
+    }
+  ],
+  "updated": [
+    {
+      "url": "https://www.city.nagoya.jp/index.html",
+      "source": "名古屋市",
+      "source_id": "nagoya",
+      "category": "",
+      "status": "updated",
+      "title": "名古屋市公式ウェブサイト",
+      "detected_keywords": [
+        "給付",
+        "助成",
+        "手当",
+        "支援"
+      ],
+      "content_hash": "ca8c38f8cc0974c1",
+      "previous_hash": "e20509c3aac7c444",
+      "diff_summary": "Content changed since 2026-07-12"
+    },
+    {
+      "url": "https://www.city.obu.aichi.jp/shisei/toukei_data/toukei/1003733.html",
+      "source": "大府市",
+      "source_id": "obu",
+      "category": "",
+      "status": "updated",
+      "title": "最新人口および世帯数（毎月更新）｜大府市",
+      "detected_keywords": [
+        "外国人"
+      ],
+      "content_hash": "b997a078cf0317cf",
+      "previous_hash": "a1170f5590875a8e",
+      "diff_summary": "Content changed since 2026-07-12"
+    },
+    {
+      "url": "https://www.city.okazaki.lg.jp/index.html",
+      "source": "岡崎市",
+      "source_id": "okazaki",
+      "category": "",
+      "status": "updated",
+      "title": "岡崎市公式ホームページ",
+      "detected_keywords": [
+        "補助"
+      ],
+      "content_hash": "7f6eaec68110108c",
+      "previous_hash": "086af092a19f6d63",
+      "diff_summary": "Content changed since 2026-07-12"
+    },
+    {
+      "url": "https://www.city.toyota.aichi.jp/index.html",
+      "source": "豊田市",
+      "source_id": "toyota",
+      "category": "",
+      "status": "updated",
+      "title": "豊田市公式ホームページ",
+      "detected_keywords": [
+        "補助",
+        "支援",
+        "外国人"
+      ],
+      "content_hash": "d53b06d5c0221c03",
+      "previous_hash": "001cdfead587fd33",
+      "diff_summary": "Content changed since 2026-07-12"
+    },
+    {
+      "url": "https://www.city.toyohashi.lg.jp/63955.htm",
+      "source": "豊橋市",
+      "source_id": "toyohashi",
+      "category": "",
+      "status": "updated",
+      "title": "2026年7月/豊橋市",
+      "detected_keywords": [
+        "補助",
+        "支援",
+        "外国籍",
+        "support"
+      ],
+      "content_hash": "7d2eaa7459dcb2b9",
+      "previous_hash": "700a0a846e5f1986",
+      "diff_summary": "Content changed since 2026-07-12"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/seisakunitsuite/bunya/kenkou_iryou/kenkou/kekkaku-kansenshou/rubella/",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "風しん｜厚生労働省",
+      "detected_keywords": [
+        "助成"
+      ],
+      "content_hash": "aaf70441fd955af2",
+      "previous_hash": "929745ed37af6591",
+      "diff_summary": "Content changed since 2026-07-12"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "医療 ｜厚生労働省",
+      "detected_keywords": [
+        "給付",
+        "補助",
+        "支援",
+        "外国人"
+      ],
+      "content_hash": "0d7cd577d6282b55",
+      "previous_hash": "b59c83fe1616f4ac",
+      "diff_summary": "Content changed since 2026-07-12"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/index.html",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "医療 ｜厚生労働省",
+      "detected_keywords": [
+        "給付",
+        "補助",
+        "支援",
+        "外国人"
+      ],
+      "content_hash": "0d7cd577d6282b55",
+      "previous_hash": "b59c83fe1616f4ac",
+      "diff_summary": "Content changed since 2026-07-12"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "医療保険 ｜厚生労働省",
+      "detected_keywords": [
+        "助成",
+        "手当",
+        "一時金"
+      ],
+      "content_hash": "eed0a978ac08374e",
+      "previous_hash": "5651e2341ace5df4",
+      "diff_summary": "Content changed since 2026-07-12"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/index.html",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "医療保険 ｜厚生労働省",
+      "detected_keywords": [
+        "助成",
+        "手当",
+        "一時金"
+      ],
+      "content_hash": "eed0a978ac08374e",
+      "previous_hash": "5651e2341ace5df4",
+      "diff_summary": "Content changed since 2026-07-12"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iyakuhin/",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "医薬品・医療機器 ｜厚生労働省",
+      "detected_keywords": [
+        "給付",
+        "支援"
+      ],
+      "content_hash": "3acf58659ebb682c",
+      "previous_hash": "06c9c27180889eff",
+      "diff_summary": "Content changed since 2026-07-12"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iyakuhin/index.html",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "医薬品・医療機器 ｜厚生労働省",
+      "detected_keywords": [
+        "給付",
+        "支援"
+      ],
+      "content_hash": "3acf58659ebb682c",
+      "previous_hash": "06c9c27180889eff",
+      "diff_summary": "Content changed since 2026-07-12"
+    }
+  ]
+}
