@@ -1,0 +1,113 @@
+{
+  "crawl_date": "2026-07-19",
+  "crawl_time": "2026-07-19T13:18:19.326327",
+  "tier": "daily",
+  "sources_total": 60,
+  "sources_crawled": 60,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [],
+  "updated": [
+    {
+      "url": "https://www.city.kasugai.lg.jp/",
+      "source": "春日井市",
+      "source_id": "kasugai",
+      "category": "",
+      "status": "updated",
+      "title": "春日井市公式ホームページ",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "69fe324df12d4ed0",
+      "previous_hash": "9359b0b97ab2e1fd",
+      "diff_summary": "Content changed since 2026-07-18"
+    },
+    {
+      "url": "https://www.city.handa.lg.jp/",
+      "source": "半田市",
+      "source_id": "handa",
+      "category": "",
+      "status": "updated",
+      "title": "半田市公式ウェブサイト",
+      "detected_keywords": [
+        "給付"
+      ],
+      "content_hash": "41c21e88fcf4bdaf",
+      "previous_hash": "4c662a7c4a794542",
+      "diff_summary": "Content changed since 2026-07-18"
+    },
+    {
+      "url": "https://www.city.tokai.aichi.jp/",
+      "source": "東海市",
+      "source_id": "tokai",
+      "category": "",
+      "status": "updated",
+      "title": "東海市公式ウェブサイト",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "bac10c702c4baca0",
+      "previous_hash": "9009d72c6367878b",
+      "diff_summary": "Content changed since 2026-07-18"
+    },
+    {
+      "url": "https://www.city.obu.aichi.jp/",
+      "source": "大府市",
+      "source_id": "obu",
+      "category": "",
+      "status": "updated",
+      "title": "大府市公式ウェブサイト",
+      "detected_keywords": [
+        "助成",
+        "補助"
+      ],
+      "content_hash": "c94df27eb6b40295",
+      "previous_hash": "df251298bb42e0c9",
+      "diff_summary": "Content changed since 2026-07-18"
+    },
+    {
+      "url": "https://www.town.agui.lg.jp/",
+      "source": "阿久比町",
+      "source_id": "agui",
+      "category": "",
+      "status": "updated",
+      "title": "阿久比町",
+      "detected_keywords": [
+        "補助",
+        "支援"
+      ],
+      "content_hash": "b9584a92e5fdbb60",
+      "previous_hash": "7f4e7e308299ad42",
+      "diff_summary": "Content changed since 2026-07-18"
+    },
+    {
+      "url": "https://www.city.hekinan.lg.jp/",
+      "source": "碧南市",
+      "source_id": "hekinan",
+      "category": "",
+      "status": "updated",
+      "title": "ホーム／碧南市",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "2eb77dde8ca3e393",
+      "previous_hash": "1ac77a357b417ba4",
+      "diff_summary": "Content changed since 2026-07-18"
+    },
+    {
+      "url": "https://www.city.gamagori.lg.jp/",
+      "source": "蒲郡市",
+      "source_id": "gamagori",
+      "category": "",
+      "status": "updated",
+      "title": "愛知県蒲郡市公式ホームページ ホーム",
+      "detected_keywords": [
+        "補助",
+        "foreign"
+      ],
+      "content_hash": "08fefc6b3f9cf790",
+      "previous_hash": "47a5c964c79d8c8e",
+      "diff_summary": "Content changed since 2026-07-18"
+    }
+  ]
+}
