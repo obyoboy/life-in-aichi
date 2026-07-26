@@ -1,0 +1,158 @@
+{
+  "crawl_date": "2026-07-26",
+  "crawl_time": "2026-07-26T13:21:54.095567",
+  "tier": "daily",
+  "sources_total": 60,
+  "sources_crawled": 60,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [],
+  "updated": [
+    {
+      "url": "https://www.city.kasugai.lg.jp/",
+      "source": "春日井市",
+      "source_id": "kasugai",
+      "category": "",
+      "status": "updated",
+      "title": "春日井市公式ホームページ",
+      "detected_keywords": [
+        "助成",
+        "支援"
+      ],
+      "content_hash": "f8d9aea1cfed3dac",
+      "previous_hash": "771cc326779c767f",
+      "diff_summary": "Content changed since 2026-07-25"
+    },
+    {
+      "url": "https://www.city.kitanagoya.lg.jp/",
+      "source": "北名古屋市",
+      "source_id": "kitanagoya",
+      "category": "",
+      "status": "updated",
+      "title": "北名古屋市公式ウェブサイト",
+      "detected_keywords": [
+        "補助"
+      ],
+      "content_hash": "afa6ca4d630e563d",
+      "previous_hash": "b03ee00f98263b6e",
+      "diff_summary": "Content changed since 2026-07-25"
+    },
+    {
+      "url": "https://www.town.aichi-togo.lg.jp/",
+      "source": "東郷町",
+      "source_id": "togo",
+      "category": "",
+      "status": "updated",
+      "title": "ホーム／東郷町",
+      "detected_keywords": [
+        "補助",
+        "支援"
+      ],
+      "content_hash": "9f73a31b4cc6c341",
+      "previous_hash": "5607ab1940cfdff1",
+      "diff_summary": "Content changed since 2026-07-25"
+    },
+    {
+      "url": "https://www.city.tokoname.aichi.jp/",
+      "source": "常滑市",
+      "source_id": "tokoname",
+      "category": "",
+      "status": "updated",
+      "title": "常滑市",
+      "detected_keywords": [
+        "補助",
+        "支援"
+      ],
+      "content_hash": "6db7ff7cf44d3e67",
+      "previous_hash": "f494d33d99457438",
+      "diff_summary": "Content changed since 2026-07-25"
+    },
+    {
+      "url": "https://www.city.tokai.aichi.jp/",
+      "source": "東海市",
+      "source_id": "tokai",
+      "category": "",
+      "status": "updated",
+      "title": "東海市公式ウェブサイト",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "f0a2a6c582361a4c",
+      "previous_hash": "8547db80a8e2e083",
+      "diff_summary": "Content changed since 2026-07-25"
+    },
+    {
+      "url": "https://www.city.obu.aichi.jp/",
+      "source": "大府市",
+      "source_id": "obu",
+      "category": "",
+      "status": "updated",
+      "title": "大府市公式ウェブサイト",
+      "detected_keywords": [
+        "助成",
+        "補助"
+      ],
+      "content_hash": "e242655096b6136d",
+      "previous_hash": "761a3bb7b1a8d3d8",
+      "diff_summary": "Content changed since 2026-07-25"
+    },
+    {
+      "url": "https://www.town.agui.lg.jp/",
+      "source": "阿久比町",
+      "source_id": "agui",
+      "category": "",
+      "status": "updated",
+      "title": "阿久比町",
+      "detected_keywords": [
+        "補助"
+      ],
+      "content_hash": "3ccafcb90eff6358",
+      "previous_hash": "f718fbb325f6ed28",
+      "diff_summary": "Content changed since 2026-07-25"
+    },
+    {
+      "url": "https://www.city.hekinan.lg.jp/",
+      "source": "碧南市",
+      "source_id": "hekinan",
+      "category": "",
+      "status": "updated",
+      "title": "ホーム／碧南市",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "f0a6b6c51a16acb8",
+      "previous_hash": "2559278a42037439",
+      "diff_summary": "Content changed since 2026-07-25"
+    },
+    {
+      "url": "https://www.city.takahama.lg.jp/",
+      "source": "高浜市",
+      "source_id": "takahama",
+      "category": "",
+      "status": "updated",
+      "title": "高浜市ホームページ トップページ",
+      "detected_keywords": [
+        "外国人",
+        "foreign"
+      ],
+      "content_hash": "92c22b8ef1a66617",
+      "previous_hash": "640d00587380467d",
+      "diff_summary": "Content changed since 2026-07-25"
+    },
+    {
+      "url": "https://www.town.kota.lg.jp/",
+      "source": "幸田町",
+      "source_id": "kota",
+      "category": "",
+      "status": "updated",
+      "title": "幸田町公式ホームページ ホーム",
+      "detected_keywords": [
+        "補助",
+        "foreign"
+      ],
+      "content_hash": "9c2095596f136a26",
+      "previous_hash": "ad6559cba427c45f",
+      "diff_summary": "Content changed since 2026-07-25"
+    }
+  ]
+}
