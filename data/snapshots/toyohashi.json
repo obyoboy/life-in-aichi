@@ -12,7 +12,7 @@
   "https://www.city.toyohashi.lg.jp/item/122001.htm": {
     "title": "本市の物価高騰対策/豊橋市",
     "hash": "831a3b82707f1ded",
-    "last_checked": "2026-08-09"
+    "last_checked": "2026-08-16"
   },
   "https://www.city.toyohashi.lg.jp/63957.htm": {
     "title": "2026年5月/豊橋市",
@@ -26,8 +26,8 @@
   },
   "https://www.city.toyohashi.lg.jp/63955.htm": {
     "title": "2026年7月/豊橋市",
-    "hash": "d6d3bf234e0eb521",
-    "last_checked": "2026-08-09"
+    "hash": "daab5846c7fe86ee",
+    "last_checked": "2026-08-16"
   },
   "https://www.city.toyohashi.lg.jp/item/124942.htm": {
     "title": "株式会社フェニックスと藤城建設株式会社から寄附をいただきました/豊橋市",
@@ -38,5 +38,10 @@
     "title": "漫画家 まえだ たかひろさんが市長を表敬訪問しました/豊橋市",
     "hash": "ca96abc5b1209daf",
     "last_checked": "2026-08-09"
+  },
+  "https://www.city.toyohashi.lg.jp/item/125384.htm": {
+    "title": "株式会社CBCテレビと防災・減災パートナーシップに関する協定を締結しました/豊橋市",
+    "hash": "36746b76ec0e1308",
+    "last_checked": "2026-08-16"
   }
 }
