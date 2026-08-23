@@ -1,0 +1,85 @@
+{
+  "crawl_date": "2026-08-23",
+  "crawl_time": "2026-08-23T11:19:38.677146",
+  "tier": "daily",
+  "sources_total": 60,
+  "sources_crawled": 60,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [],
+  "updated": [
+    {
+      "url": "https://www.city.ichinomiya.aichi.jp/",
+      "source": "一宮市",
+      "source_id": "ichinomiya",
+      "category": "",
+      "status": "updated",
+      "title": "一宮市",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "a143d5bb14f2dade",
+      "previous_hash": "3ff9d3d02b07958e",
+      "diff_summary": "Content changed since 2026-08-22"
+    },
+    {
+      "url": "https://www.city.obu.aichi.jp/",
+      "source": "大府市",
+      "source_id": "obu",
+      "category": "",
+      "status": "updated",
+      "title": "大府市公式ウェブサイト",
+      "detected_keywords": [
+        "助成",
+        "補助"
+      ],
+      "content_hash": "50ea27205310419a",
+      "previous_hash": "ed014dc51388febd",
+      "diff_summary": "Content changed since 2026-08-22"
+    },
+    {
+      "url": "https://www.city.chita.lg.jp/",
+      "source": "知多市",
+      "source_id": "chita",
+      "category": "",
+      "status": "updated",
+      "title": "知多市",
+      "detected_keywords": [
+        "補助"
+      ],
+      "content_hash": "89c3ea5c65a80f66",
+      "previous_hash": "09fb735b10f6753d",
+      "diff_summary": "Content changed since 2026-08-22"
+    },
+    {
+      "url": "https://www.city.gamagori.lg.jp/",
+      "source": "蒲郡市",
+      "source_id": "gamagori",
+      "category": "",
+      "status": "updated",
+      "title": "愛知県蒲郡市公式ホームページ ホーム",
+      "detected_keywords": [
+        "補助",
+        "foreign"
+      ],
+      "content_hash": "d3f3a25a41ba7004",
+      "previous_hash": "feec0a4a2dce324a",
+      "diff_summary": "Content changed since 2026-08-22"
+    },
+    {
+      "url": "https://www.city.tahara.aichi.jp/",
+      "source": "田原市",
+      "source_id": "tahara",
+      "category": "",
+      "status": "updated",
+      "title": "田原市ホームページ",
+      "detected_keywords": [
+        "補助",
+        "支援"
+      ],
+      "content_hash": "6367d9c36e866e95",
+      "previous_hash": "cb0d9d058fbb7941",
+      "diff_summary": "Content changed since 2026-08-22"
+    }
+  ]
+}
