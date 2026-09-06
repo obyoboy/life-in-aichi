@@ -1,0 +1,211 @@
+{
+  "crawl_date": "2026-09-06",
+  "crawl_time": "2026-09-06T15:15:12.855105",
+  "tier": "weekly",
+  "sources_total": 10,
+  "sources_crawled": 10,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [
+    {
+      "url": "https://www.city.toyohashi.lg.jp/63953.htm",
+      "source": "豊橋市",
+      "source_id": "toyohashi",
+      "category": "",
+      "status": "new",
+      "title": "2026年9月/豊橋市",
+      "detected_keywords": [
+        "補助",
+        "support"
+      ],
+      "content_hash": "b888bcaf4c2ac24b"
+    },
+    {
+      "url": "https://www.city.toyohashi.lg.jp/63954.htm",
+      "source": "豊橋市",
+      "source_id": "toyohashi",
+      "category": "",
+      "status": "new",
+      "title": "2026年8月/豊橋市",
+      "detected_keywords": [
+        "補助",
+        "支援",
+        "support"
+      ],
+      "content_hash": "76732d86b0beb4c4"
+    }
+  ],
+  "updated": [
+    {
+      "url": "https://www.city.nagoya.jp/index.html",
+      "source": "名古屋市",
+      "source_id": "nagoya",
+      "category": "",
+      "status": "updated",
+      "title": "名古屋市公式ウェブサイト",
+      "detected_keywords": [
+        "給付",
+        "助成",
+        "手当",
+        "支援"
+      ],
+      "content_hash": "a5aa53585b972fe6",
+      "previous_hash": "733893bfbc5ab265",
+      "diff_summary": "Content changed since 2026-08-30"
+    },
+    {
+      "url": "https://www.city.obu.aichi.jp/shisei/koho/koho_obu/1037639/1040351.html",
+      "source": "大府市",
+      "source_id": "obu",
+      "category": "",
+      "status": "updated",
+      "title": "広報おおぶ　2026年9月号｜大府市",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "f21f45f2d133e0b0",
+      "previous_hash": "ddf7a7528db1f57d",
+      "diff_summary": "Content changed since 2026-08-30"
+    },
+    {
+      "url": "https://www.city.okazaki.lg.jp/index.html",
+      "source": "岡崎市",
+      "source_id": "okazaki",
+      "category": "",
+      "status": "updated",
+      "title": "岡崎市公式ホームページ",
+      "detected_keywords": [
+        "補助"
+      ],
+      "content_hash": "ab30d5912ca47bff",
+      "previous_hash": "a7e1f904635ba72b",
+      "diff_summary": "Content changed since 2026-08-30"
+    },
+    {
+      "url": "https://www.city.toyota.aichi.jp/index.html",
+      "source": "豊田市",
+      "source_id": "toyota",
+      "category": "",
+      "status": "updated",
+      "title": "豊田市公式ホームページ",
+      "detected_keywords": [
+        "補助",
+        "支援",
+        "外国人"
+      ],
+      "content_hash": "4da3cdf0015c4b0b",
+      "previous_hash": "bf4be770917c4138",
+      "diff_summary": "Content changed since 2026-08-30"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "医療 ｜厚生労働省",
+      "detected_keywords": [
+        "給付",
+        "補助",
+        "支援",
+        "外国人"
+      ],
+      "content_hash": "9c51cb01cbe943ae",
+      "previous_hash": "03be5f42843abb2f",
+      "diff_summary": "Content changed since 2026-08-30"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/index.html",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "医療 ｜厚生労働省",
+      "detected_keywords": [
+        "給付",
+        "補助",
+        "支援",
+        "外国人"
+      ],
+      "content_hash": "9c51cb01cbe943ae",
+      "previous_hash": "03be5f42843abb2f",
+      "diff_summary": "Content changed since 2026-08-30"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "医療保険 ｜厚生労働省",
+      "detected_keywords": [
+        "助成",
+        "手当",
+        "一時金"
+      ],
+      "content_hash": "0e8619a26e3b3740",
+      "previous_hash": "4908cad0af1fff51",
+      "diff_summary": "Content changed since 2026-08-30"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/index.html",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "医療保険 ｜厚生労働省",
+      "detected_keywords": [
+        "助成",
+        "手当",
+        "一時金"
+      ],
+      "content_hash": "0e8619a26e3b3740",
+      "previous_hash": "4908cad0af1fff51",
+      "diff_summary": "Content changed since 2026-08-30"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iyakuhin/",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "医薬品・医療機器 ｜厚生労働省",
+      "detected_keywords": [
+        "給付",
+        "支援"
+      ],
+      "content_hash": "bf74dce70f071564",
+      "previous_hash": "4ef0f17eba144460",
+      "diff_summary": "Content changed since 2026-08-30"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iyakuhin/index.html",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "医薬品・医療機器 ｜厚生労働省",
+      "detected_keywords": [
+        "給付",
+        "支援"
+      ],
+      "content_hash": "bf74dce70f071564",
+      "previous_hash": "4ef0f17eba144460",
+      "diff_summary": "Content changed since 2026-08-30"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/kekkaku-kansenshou/yobou-sesshu/index.html",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "予防接種・ワクチン情報｜厚生労働省",
+      "detected_keywords": [
+        "給付"
+      ],
+      "content_hash": "2b6e93da07dab8e4",
+      "previous_hash": "e1a7a18a9c4e5c8d",
+      "diff_summary": "Content changed since 2026-08-30"
+    }
+  ]
+}
