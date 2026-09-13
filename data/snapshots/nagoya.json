@@ -68,5 +68,15 @@
     "title": "サイト内検索　検索結果｜名古屋市公式ウェブサイト",
     "hash": "c65b65a9726192ac",
     "last_checked": "2026-09-06"
+  },
+  "https://www.city.nagoya.jp/1000103.html": {
+    "title": "災害情報配信｜名古屋市公式ウェブサイト",
+    "hash": "5e135c6cabf4e718",
+    "last_checked": "2026-09-13"
+  },
+  "https://www.city.nagoya.jp/emergency/index.html": {
+    "title": "名古屋市公式ウェブサイト",
+    "hash": "271fb5d12417abac",
+    "last_checked": "2026-09-13"
   }
 }
