@@ -1,0 +1,165 @@
+{
+  "crawl_date": "2026-09-20",
+  "crawl_time": "2026-09-20T14:33:46.891236",
+  "tier": "daily",
+  "sources_total": 60,
+  "sources_crawled": 60,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [],
+  "updated": [
+    {
+      "url": "https://www.city.nagoya.jp/",
+      "source": "名古屋市",
+      "source_id": "nagoya",
+      "category": "",
+      "status": "updated",
+      "title": "名古屋市公式ウェブサイト",
+      "detected_keywords": [
+        "給付",
+        "助成",
+        "手当",
+        "支援"
+      ],
+      "content_hash": "cd7ed4c279bc8fd4",
+      "previous_hash": "44ca74b81a647983",
+      "diff_summary": "Content changed since 2026-09-19"
+    },
+    {
+      "url": "https://www.city.aisai.lg.jp/",
+      "source": "愛西市",
+      "source_id": "aisai",
+      "category": "",
+      "status": "updated",
+      "title": "愛西市",
+      "detected_keywords": [
+        "補助",
+        "支援",
+        "免除"
+      ],
+      "content_hash": "a43e560f8338cee8",
+      "previous_hash": "4a898e172b1b021f",
+      "diff_summary": "Content changed since 2026-09-19"
+    },
+    {
+      "url": "https://www.city.tokoname.aichi.jp/",
+      "source": "常滑市",
+      "source_id": "tokoname",
+      "category": "",
+      "status": "updated",
+      "title": "常滑市",
+      "detected_keywords": [
+        "助成",
+        "補助"
+      ],
+      "content_hash": "2f08759b4de0875a",
+      "previous_hash": "655e6c65ec11a7c7",
+      "diff_summary": "Content changed since 2026-09-19"
+    },
+    {
+      "url": "https://www.city.obu.aichi.jp/",
+      "source": "大府市",
+      "source_id": "obu",
+      "category": "",
+      "status": "updated",
+      "title": "大府市公式ウェブサイト",
+      "detected_keywords": [
+        "助成",
+        "補助"
+      ],
+      "content_hash": "d706a1c1dabc2f9b",
+      "previous_hash": "f331c7a230f5dab4",
+      "diff_summary": "Content changed since 2026-09-19"
+    },
+    {
+      "url": "https://www.town.agui.lg.jp/",
+      "source": "阿久比町",
+      "source_id": "agui",
+      "category": "",
+      "status": "updated",
+      "title": "阿久比町",
+      "detected_keywords": [
+        "補助",
+        "支援"
+      ],
+      "content_hash": "1fe1eb86e427eab5",
+      "previous_hash": "82bc4272208c30e3",
+      "diff_summary": "Content changed since 2026-09-19"
+    },
+    {
+      "url": "https://www.town.taketoyo.lg.jp/",
+      "source": "武豊町",
+      "source_id": "taketoyo",
+      "category": "",
+      "status": "updated",
+      "title": "武豊町公式ホームページ",
+      "detected_keywords": [
+        "給付",
+        "助成",
+        "手当",
+        "補助"
+      ],
+      "content_hash": "3b32ca9b27df38d9",
+      "previous_hash": "e6bb90db73300245",
+      "diff_summary": "Content changed since 2026-09-19"
+    },
+    {
+      "url": "https://www.city.hekinan.lg.jp/",
+      "source": "碧南市",
+      "source_id": "hekinan",
+      "category": "",
+      "status": "updated",
+      "title": "ホーム／碧南市",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "bf1b1e30322f4573",
+      "previous_hash": "cb1e7c3d2af00787",
+      "diff_summary": "Content changed since 2026-09-19"
+    },
+    {
+      "url": "https://www.city.nishio.aichi.jp/",
+      "source": "西尾市",
+      "source_id": "nishio",
+      "category": "",
+      "status": "updated",
+      "title": "西尾市公式ウェブサイト",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "dfcc6c240d99439a",
+      "previous_hash": "60a06b3f551b5794",
+      "diff_summary": "Content changed since 2026-09-19"
+    },
+    {
+      "url": "https://www.town.kota.lg.jp/",
+      "source": "幸田町",
+      "source_id": "kota",
+      "category": "",
+      "status": "updated",
+      "title": "幸田町公式ホームページ ホーム",
+      "detected_keywords": [
+        "給付",
+        "支援",
+        "foreign"
+      ],
+      "content_hash": "ede10cf2c192dc8f",
+      "previous_hash": "98913f9100f955ee",
+      "diff_summary": "Content changed since 2026-09-19"
+    },
+    {
+      "url": "https://www.city.tahara.aichi.jp/",
+      "source": "田原市",
+      "source_id": "tahara",
+      "category": "",
+      "status": "updated",
+      "title": "田原市ホームページ",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "da8451a13e762759",
+      "previous_hash": "e489f9d98d7b148b",
+      "diff_summary": "Content changed since 2026-09-19"
+    }
+  ]
+}
