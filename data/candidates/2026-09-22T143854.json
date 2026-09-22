@@ -1,0 +1,56 @@
+{
+  "crawl_date": "2026-09-22",
+  "crawl_time": "2026-09-22T14:38:54.810239",
+  "tier": "daily",
+  "sources_total": 60,
+  "sources_crawled": 60,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [],
+  "updated": [
+    {
+      "url": "https://www.city.obu.aichi.jp/",
+      "source": "大府市",
+      "source_id": "obu",
+      "category": "",
+      "status": "updated",
+      "title": "大府市公式ウェブサイト",
+      "detected_keywords": [
+        "助成",
+        "補助"
+      ],
+      "content_hash": "c4aeaa4505630c32",
+      "previous_hash": "9a85689d35372946",
+      "diff_summary": "Content changed since 2026-09-21"
+    },
+    {
+      "url": "https://www.town.agui.lg.jp/",
+      "source": "阿久比町",
+      "source_id": "agui",
+      "category": "",
+      "status": "updated",
+      "title": "阿久比町",
+      "detected_keywords": [
+        "補助",
+        "支援"
+      ],
+      "content_hash": "b14b7345eb63cf9f",
+      "previous_hash": "4e7a2a83ca085fce",
+      "diff_summary": "Content changed since 2026-09-21"
+    },
+    {
+      "url": "https://www.city.okazaki.lg.jp/",
+      "source": "岡崎市",
+      "source_id": "okazaki",
+      "category": "",
+      "status": "updated",
+      "title": "岡崎市公式ホームページ",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "8ab396c06171712b",
+      "previous_hash": "e0f564f9be36a5e8",
+      "diff_summary": "Content changed since 2026-09-21"
+    }
+  ]
+}
