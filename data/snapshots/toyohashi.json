@@ -12,7 +12,7 @@
   "https://www.city.toyohashi.lg.jp/item/122001.htm": {
     "title": "本市の物価高騰対策/豊橋市",
     "hash": "831a3b82707f1ded",
-    "last_checked": "2026-09-20"
+    "last_checked": "2026-09-27"
   },
   "https://www.city.toyohashi.lg.jp/63957.htm": {
     "title": "2026年5月/豊橋市",
@@ -61,12 +61,17 @@
   },
   "https://www.city.toyohashi.lg.jp/63953.htm": {
     "title": "2026年9月/豊橋市",
-    "hash": "b888bcaf4c2ac24b",
-    "last_checked": "2026-09-20"
+    "hash": "8edb7d1db53b82e0",
+    "last_checked": "2026-09-27"
   },
   "https://www.city.toyohashi.lg.jp/63954.htm": {
     "title": "2026年8月/豊橋市",
     "hash": "76732d86b0beb4c4",
-    "last_checked": "2026-09-20"
+    "last_checked": "2026-09-27"
+  },
+  "https://www.city.toyohashi.lg.jp/item/126012.htm": {
+    "title": "自然史博物館で特別企画展「ポケモン天文台」が開幕しました/豊橋市",
+    "hash": "27745e26720c21e7",
+    "last_checked": "2026-09-27"
   }
 }
