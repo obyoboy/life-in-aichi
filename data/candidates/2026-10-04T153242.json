@@ -1,0 +1,160 @@
+{
+  "crawl_date": "2026-10-04",
+  "crawl_time": "2026-10-04T15:32:42.656360",
+  "tier": "daily",
+  "sources_total": 60,
+  "sources_crawled": 60,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [],
+  "updated": [
+    {
+      "url": "https://www.city.seto.aichi.jp/",
+      "source": "瀬戸市",
+      "source_id": "seto",
+      "category": "",
+      "status": "updated",
+      "title": "瀬戸市",
+      "detected_keywords": [
+        "補助",
+        "支援"
+      ],
+      "content_hash": "0e66b9fbaf6f4ee6",
+      "previous_hash": "0b4d839ec050b23a",
+      "diff_summary": "Content changed since 2026-10-03"
+    },
+    {
+      "url": "https://www.city.kasugai.lg.jp/",
+      "source": "春日井市",
+      "source_id": "kasugai",
+      "category": "",
+      "status": "updated",
+      "title": "春日井市公式ホームページ",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "c5fef0b4d392fad3",
+      "previous_hash": "8d3fa156be906f5a",
+      "diff_summary": "Content changed since 2026-10-03"
+    },
+    {
+      "url": "https://www.city.inuyama.aichi.jp/",
+      "source": "犬山市",
+      "source_id": "inuyama",
+      "category": "",
+      "status": "updated",
+      "title": "犬山市",
+      "detected_keywords": [
+        "免除"
+      ],
+      "content_hash": "00d310b75a219ec8",
+      "previous_hash": "0077ef6e636b83fe",
+      "diff_summary": "Content changed since 2026-10-03"
+    },
+    {
+      "url": "https://www.town.oharu.aichi.jp/",
+      "source": "大治町",
+      "source_id": "oharu",
+      "category": "",
+      "status": "updated",
+      "title": "ホーム/大治町",
+      "detected_keywords": [
+        "助成",
+        "補助",
+        "支援"
+      ],
+      "content_hash": "05d78c9cfaf00cc4",
+      "previous_hash": "3a262145d652cced",
+      "diff_summary": "Content changed since 2026-10-03"
+    },
+    {
+      "url": "https://www.city.tokai.aichi.jp/",
+      "source": "東海市",
+      "source_id": "tokai",
+      "category": "",
+      "status": "updated",
+      "title": "東海市公式ウェブサイト",
+      "detected_keywords": [
+        "補助",
+        "支援"
+      ],
+      "content_hash": "eecd3bc83cdf570a",
+      "previous_hash": "bfe174a14007a41e",
+      "diff_summary": "Content changed since 2026-10-03"
+    },
+    {
+      "url": "https://www.city.obu.aichi.jp/",
+      "source": "大府市",
+      "source_id": "obu",
+      "category": "",
+      "status": "updated",
+      "title": "大府市公式ウェブサイト",
+      "detected_keywords": [
+        "助成",
+        "補助"
+      ],
+      "content_hash": "9e2c39ce2a136f3b",
+      "previous_hash": "8256d503a3790adf",
+      "diff_summary": "Content changed since 2026-10-03"
+    },
+    {
+      "url": "https://www.city.hekinan.lg.jp/",
+      "source": "碧南市",
+      "source_id": "hekinan",
+      "category": "",
+      "status": "updated",
+      "title": "ホーム／碧南市",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "6522ccbfe6708674",
+      "previous_hash": "0eeece969d6aff10",
+      "diff_summary": "Content changed since 2026-10-03"
+    },
+    {
+      "url": "https://www.city.toyota.aichi.jp/",
+      "source": "豊田市",
+      "source_id": "toyota",
+      "category": "",
+      "status": "updated",
+      "title": "豊田市公式ホームページ",
+      "detected_keywords": [
+        "補助",
+        "支援",
+        "外国人"
+      ],
+      "content_hash": "91c82df93203b5ce",
+      "previous_hash": "5131f35ea815f86c",
+      "diff_summary": "Content changed since 2026-10-03"
+    },
+    {
+      "url": "https://www.city.anjo.aichi.jp/",
+      "source": "安城市",
+      "source_id": "anjo",
+      "category": "",
+      "status": "updated",
+      "title": "安城市／ホーム",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "eac5ad5c3ad28ca7",
+      "previous_hash": "437e470f46c7b276",
+      "diff_summary": "Content changed since 2026-10-03"
+    },
+    {
+      "url": "https://www.city.gamagori.lg.jp/",
+      "source": "蒲郡市",
+      "source_id": "gamagori",
+      "category": "",
+      "status": "updated",
+      "title": "愛知県蒲郡市公式ホームページ ホーム",
+      "detected_keywords": [
+        "補助",
+        "foreign"
+      ],
+      "content_hash": "7f6069201df4f691",
+      "previous_hash": "a3da10aed81ae1eb",
+      "diff_summary": "Content changed since 2026-10-03"
+    }
+  ]
+}
