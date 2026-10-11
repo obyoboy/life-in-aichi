@@ -1,0 +1,132 @@
+{
+  "crawl_date": "2026-10-11",
+  "crawl_time": "2026-10-11T16:33:20.020962",
+  "tier": "weekly",
+  "sources_total": 10,
+  "sources_crawled": 10,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [
+    {
+      "url": "https://www.city.toyohashi.lg.jp/item/126108.htm",
+      "source": "豊橋市",
+      "source_id": "toyohashi",
+      "category": "",
+      "status": "new",
+      "title": "空手の全国大会に出場した選手が市長を表敬訪問しました/豊橋市",
+      "detected_keywords": [
+        "補助",
+        "支援",
+        "support"
+      ],
+      "content_hash": "d2078e5019fdf217"
+    },
+    {
+      "url": "https://www.city.toyohashi.lg.jp/item/126122.htm",
+      "source": "豊橋市",
+      "source_id": "toyohashi",
+      "category": "",
+      "status": "new",
+      "title": "明治安田生命保険相互会社から寄附をいただきました/豊橋市",
+      "detected_keywords": [
+        "補助",
+        "支援",
+        "support"
+      ],
+      "content_hash": "017482f7f10d6685"
+    }
+  ],
+  "updated": [
+    {
+      "url": "https://www.city.nagoya.jp/index.html",
+      "source": "名古屋市",
+      "source_id": "nagoya",
+      "category": "",
+      "status": "updated",
+      "title": "名古屋市公式ウェブサイト",
+      "detected_keywords": [
+        "給付",
+        "助成",
+        "手当",
+        "支援"
+      ],
+      "content_hash": "c6ee44dbda62382a",
+      "previous_hash": "6a4b9560a5129fff",
+      "diff_summary": "Content changed since 2026-10-04"
+    },
+    {
+      "url": "https://www.city.obu.aichi.jp/shisei/toukei_data/toukei/1003733.html",
+      "source": "大府市",
+      "source_id": "obu",
+      "category": "",
+      "status": "updated",
+      "title": "最新人口および世帯数（毎月更新）｜大府市",
+      "detected_keywords": [
+        "外国人"
+      ],
+      "content_hash": "e2b933d2ab62517f",
+      "previous_hash": "b1b9e3dcbf7925b9",
+      "diff_summary": "Content changed since 2026-10-04"
+    },
+    {
+      "url": "https://www.city.okazaki.lg.jp/index.html",
+      "source": "岡崎市",
+      "source_id": "okazaki",
+      "category": "",
+      "status": "updated",
+      "title": "岡崎市公式ホームページ",
+      "detected_keywords": [
+        "補助"
+      ],
+      "content_hash": "6b48c63b88bfeb06",
+      "previous_hash": "bcb2cb8fa572c053",
+      "diff_summary": "Content changed since 2026-10-04"
+    },
+    {
+      "url": "https://www.city.toyota.aichi.jp/index.html",
+      "source": "豊田市",
+      "source_id": "toyota",
+      "category": "",
+      "status": "updated",
+      "title": "豊田市公式ホームページ",
+      "detected_keywords": [
+        "補助",
+        "支援",
+        "外国人"
+      ],
+      "content_hash": "7e9ad448d4fa1ecb",
+      "previous_hash": "91c82df93203b5ce",
+      "diff_summary": "Content changed since 2026-10-04"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iyakuhin/",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "医薬品・医療機器 ｜厚生労働省",
+      "detected_keywords": [
+        "給付",
+        "支援"
+      ],
+      "content_hash": "f43b3148d45f1471",
+      "previous_hash": "40931b0e23a6365e",
+      "diff_summary": "Content changed since 2026-10-04"
+    },
+    {
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iyakuhin/index.html",
+      "source": "厚生労働省 健康・医療",
+      "source_id": "mhlw",
+      "category": "",
+      "status": "updated",
+      "title": "医薬品・医療機器 ｜厚生労働省",
+      "detected_keywords": [
+        "給付",
+        "支援"
+      ],
+      "content_hash": "f43b3148d45f1471",
+      "previous_hash": "40931b0e23a6365e",
+      "diff_summary": "Content changed since 2026-10-04"
+    }
+  ]
+}
