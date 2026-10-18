@@ -1,0 +1,84 @@
+{
+  "crawl_date": "2026-10-18",
+  "crawl_time": "2026-10-18T14:17:17.589326",
+  "tier": "daily",
+  "sources_total": 60,
+  "sources_crawled": 60,
+  "sources_skipped": 0,
+  "sources_failed": 0,
+  "candidates": [],
+  "updated": [
+    {
+      "url": "https://www.city.seto.aichi.jp/",
+      "source": "瀬戸市",
+      "source_id": "seto",
+      "category": "",
+      "status": "updated",
+      "title": "瀬戸市",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "c378306db2f10f20",
+      "previous_hash": "c3130f9da9dea278",
+      "diff_summary": "Content changed since 2026-10-17"
+    },
+    {
+      "url": "https://www.city.tokai.aichi.jp/",
+      "source": "東海市",
+      "source_id": "tokai",
+      "category": "",
+      "status": "updated",
+      "title": "東海市公式ウェブサイト",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "5da05121e813bf6b",
+      "previous_hash": "598a4758b4237c92",
+      "diff_summary": "Content changed since 2026-10-17"
+    },
+    {
+      "url": "https://www.city.obu.aichi.jp/",
+      "source": "大府市",
+      "source_id": "obu",
+      "category": "",
+      "status": "updated",
+      "title": "大府市公式ウェブサイト",
+      "detected_keywords": [
+        "助成",
+        "補助"
+      ],
+      "content_hash": "c53a5e95f0b42d06",
+      "previous_hash": "152f8edb7ced6159",
+      "diff_summary": "Content changed since 2026-10-17"
+    },
+    {
+      "url": "https://www.town.agui.lg.jp/",
+      "source": "阿久比町",
+      "source_id": "agui",
+      "category": "",
+      "status": "updated",
+      "title": "阿久比町",
+      "detected_keywords": [
+        "補助",
+        "支援"
+      ],
+      "content_hash": "f86a31fe3f9f17c8",
+      "previous_hash": "f154f49edad73107",
+      "diff_summary": "Content changed since 2026-10-17"
+    },
+    {
+      "url": "https://www.city.tahara.aichi.jp/",
+      "source": "田原市",
+      "source_id": "tahara",
+      "category": "",
+      "status": "updated",
+      "title": "田原市ホームページ",
+      "detected_keywords": [
+        "支援"
+      ],
+      "content_hash": "0cdad7bc4a5455ab",
+      "previous_hash": "0edcdb1b8edacfdd",
+      "diff_summary": "Content changed since 2026-10-17"
+    }
+  ]
+}
